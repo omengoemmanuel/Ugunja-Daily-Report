@@ -45,7 +45,7 @@ class comment(models.Model):
 
 
 class sub_trending_col_1(models.Model):
-    trending_photo = models.ImageField()
+    trending_photo = models.ImageField(upload_to="uploads/sub trending col 1", default='uploads/sub trending col 1/sub.jpg')
     trending_choice = [
         ('Food', 'Food'),
         ('Sport', 'Sport'),

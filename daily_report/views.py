@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import sliders, main_trending_headline, comment
+from .models import sliders, main_trending_headline, comment, sub_trending_col_1
 from django.contrib import messages
 
 
@@ -7,7 +7,8 @@ from django.contrib import messages
 def index(request):
     slide = sliders.objects.all()
     trend = main_trending_headline.objects.all()
-    return render(request, 'index.html', {'slide': slide, 'trend': trend})
+    sub_trend_1 = sub_trending_col_1.objects.all()
+    return render(request, 'index.html', {'slide': slide, 'trend': trend, 'sub_trend_1': sub_trend_1})
 
 
 def about(request):
