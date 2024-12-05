@@ -169,32 +169,16 @@
                             </div> <!-- end sub trending column one -->
                             <!-- sub trending column two -->
                             <div class="col-lg-4 border-start custom-border">
+                                {% for col2 in sub_trend_2 %}
                                 <div class="post-entry">
                                     <a href="blog-details.html"><img
-                                            src="{% static 'assets/img/post-landscape-3.jpg' %}" alt=""
+                                            src="/media/{{ col2.trending_photo }}" alt=""
                                             class="img-fluid"></a>
-                                    <div class="post-meta"><span class="date">Business</span> <span
-                                            class="mx-1">•</span> <span>Jul 5th '22</span></div>
-                                    <h2><a href="blog-details.html">6 Easy Steps To Create Your Own Cute Merch For
-                                        Instagram</a></h2>
+                                    <div class="post-meta"><span class="date">{{ col2.trending_type }}</span> <span
+                                            class="mx-1">•</span> <span>{{ col2.date }}</span></div>
+                                    <h2><a href="blog-details.html">{{ col2.title }}</a></h2>
                                 </div>
-                                <div class="post-entry">
-                                    <a href="blog-details.html"><img
-                                            src="{% static 'assets/img/post-landscape-6.jpg' %}" alt=""
-                                            class="img-fluid"></a>
-                                    <div class="post-meta"><span class="date">Tech</span> <span class="mx-1">•</span>
-                                        <span>Mar 1st '22</span></div>
-                                    <h2><a href="blog-details.html">10 Life-Changing Hacks Every Working Mom Should
-                                        Know</a></h2>
-                                </div>
-                                <div class="post-entry">
-                                    <a href="blog-details.html"><img
-                                            src="{% static 'assets/img/post-landscape-8.jpg' %}" alt=""
-                                            class="img-fluid"></a>
-                                    <div class="post-meta"><span class="date">Travel</span> <span class="mx-1">•</span>
-                                        <span>Jul 5th '22</span></div>
-                                    <h2><a href="blog-details.html">5 Great Startup Tips for Female Founders</a></h2>
-                                </div>
+                                {% endfor %}
                             </div>
                             <!-- end sub trending column two -->
 
