@@ -67,93 +67,104 @@
         <button type="button" class="close" data-dismiss="alert" aria-label="close"></button>
     </div>
 {% endfor %}
- <div class="container mt-5">
-        <div class="row">
-            <div class="col-lg-8">
-                <article>
-                    <header class="mb-4">
-                        <h1 class="fw-bolder mb-1">{{ det_col1.title }}</h1>
-                        <div class="text-muted fst-italic mb-2">Posted on {{ det_col1.date }}</div>
-                    </header>
-                    <figure class="mb-4">
-                        <img class="img-fluid rounded" src="/media/{{ det_col1.trending_photo }}" alt="Blog post image">
-                    </figure>
-                    <section class="mb-5">
-                        <p class="fs-5 mb-4">{{ det_col1.description }}.</p>
-
-                    </section>
-                </article>
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-lg-8">
+            <article>
+                <header class="mb-4">
+                    <h1 class="fw-bolder mb-1">{{ det_col1.title }}</h1>
+                    <div class="text-muted fst-italic mb-2">Posted on {{ det_col1.date }}</div>
+                </header>
+                <figure class="mb-4">
+                    <img class="img-fluid rounded" src="/media/{{ det_col1.trending_photo }}" alt="Blog post image">
+                </figure>
                 <section class="mb-5">
-                    <div class="card bg-light">
-                        <div class="card-body">
-                            <form class="mb-4">
-                                <textarea class="form-control" rows="3" placeholder="Join the discussion and leave a comment!"></textarea>
-                                  <div class="container mt-3">
-                            <div class="row g-2">
-                                <div class="col-md-4">
-                                    <input type="text" class="form-control" name="full_name" placeholder="Full Name"
-                                           required>
-                                </div>
-                                <div class="col-md-4">
-                                    <input type="email" class="form-control" name="email" placeholder="Email" required>
-                                </div>
-                                <div class="col-md-4">
-                                    <input type="text" class="form-control" name="phone" placeholder="Phone number"
-                                           required>
-                                </div>
-                            </div>
-                        </div>
-                            </form>
-                            <div class="d-flex mb-4">
-                                <div class="flex-shrink-0"><img class="rounded-circle" src="https://via.placeholder.com/50x50" alt="..."></div>
-                                <div class="ms-3">
-                                    <div class="fw-bold">Commenter Name</div>
-                                    If you're going to lead a space frontier, it has to be government; it'll never be private enterprise. Because the space frontier is dangerous, and it's expensive, and it has unquantified risks.
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <p class="fs-5 mb-4">{{ det_col1.description }}.</p>
                 </section>
+            </article>
+            <section class="mb-5">
+                <div class="card bg-light">
+                    <div>
+                    <div class="card-body">
+                        <h4>Leave a Comment</h4>
+                        <form class="mb-4" method="post" action="/comment_col11">
+                            {% csrf_token %}
+                            <textarea class="form-control" rows="3"
+                                      placeholder="Join the discussion and leave a comment!" required name="comment"></textarea>
+                            <div class="container mt-3">
+                                <div class="row g-2">
+                                    <div class="col-md-4">
+                                        <input type="text" class="form-control" name="full_name" placeholder="Full Name"
+                                               required>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <input type="email" class="form-control" name="email" placeholder="Email"
+                                               required>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <input type="text" class="form-control" name="phone" placeholder="Phone number"
+                                               required>
+                                    </div>
+                                    <button type="submit" class="btn btn-success">Submit your comment</button>
+                                </div>
+                            </div>
+                        </form>
+                        {% for com in comment1 %}
+                        <div class="d-flex mb-4">
+                            <div class="flex-shrink-0"><img class="rounded-circle"
+                                                            src="/media/{{ com.image }}" alt="..." height="50" width="50"></div>
+                            <div class="ms-3">
+                                <div class="fw-bold">{{ com.full_name }}</div>
+                               {{ com.comment }}
+                            </div>
+                        </div>
+                           
+                        {% endfor %}
+                    </div>
+                </div>
+            </section>
+        </div>
+        <div class="col-lg-4">
+            <div class="card mb-4">
+                <div class="card-header">Search</div>
+                <div class="card-body">
+                    <div class="input-group">
+                        <input class="form-control" type="text" placeholder="Enter search term..."
+                               aria-label="Enter search term..." aria-describedby="button-search">
+                        <button class="btn btn-primary" id="button-search" type="button">Go!</button>
+                    </div>
+                </div>
             </div>
-            <div class="col-lg-4">
-                <div class="card mb-4">
-                    <div class="card-header">Search</div>
-                    <div class="card-body">
-                        <div class="input-group">
-                            <input class="form-control" type="text" placeholder="Enter search term..." aria-label="Enter search term..." aria-describedby="button-search">
-                            <button class="btn btn-primary" id="button-search" type="button">Go!</button>
+            <div class="card mb-4">
+                <div class="card-header">Categories</div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <ul class="list-unstyled mb-0">
+                                <li><a href="#!">Web Design</a></li>
+                                <li><a href="#!">HTML</a></li>
+                                <li><a href="#!">Freebies</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-sm-6">
+                            <ul class="list-unstyled mb-0">
+                                <li><a href="#!">JavaScript</a></li>
+                                <li><a href="#!">CSS</a></li>
+                                <li><a href="#!">Tutorials</a></li>
+                            </ul>
                         </div>
                     </div>
                 </div>
-                <div class="card mb-4">
-                    <div class="card-header">Categories</div>
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-sm-6">
-                                <ul class="list-unstyled mb-0">
-                                    <li><a href="#!">Web Design</a></li>
-                                    <li><a href="#!">HTML</a></li>
-                                    <li><a href="#!">Freebies</a></li>
-                                </ul>
-                            </div>
-                            <div class="col-sm-6">
-                                <ul class="list-unstyled mb-0">
-                                    <li><a href="#!">JavaScript</a></li>
-                                    <li><a href="#!">CSS</a></li>
-                                    <li><a href="#!">Tutorials</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="card mb-4">
-                    <div class="card-header">Side Widget</div>
-                    <div class="card-body">You can put anything you want inside of these side widgets. They are easy to use, and feature the Bootstrap 5 card component!</div>
+            </div>
+            <div class="card mb-4">
+                <div class="card-header">Side Widget</div>
+                <div class="card-body">You can put anything you want inside of these side widgets. They are easy to use,
+                    and feature the Bootstrap 5 card component!
                 </div>
             </div>
         </div>
     </div>
-
+</div>
 
 
 <footer id="footer" class="footer dark-background">

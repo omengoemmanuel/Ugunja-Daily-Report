@@ -64,6 +64,17 @@ class sub_trending_col_1(models.Model):
         return self.title
 
 
+class comment_col1(models.Model):
+    comment = models.TextField()
+    full_name = models.CharField(max_length=30, null=False, blank=False)
+    email = models.EmailField()
+    phone = models.CharField(max_length=13, null=False, blank=False)
+    image = models.ImageField(upload_to='uploads/comments', default='uploads/comments/default.jpg')
+
+    def __str__(self):
+        return self.full_name
+
+
 class sub_trending_col_2(models.Model):
     trending_photo = models.ImageField(upload_to="uploads/sub trending col 2",
                                        default='uploads/sub trending col 2/sub.jpg')

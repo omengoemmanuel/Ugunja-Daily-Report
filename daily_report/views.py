@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
-from .models import sliders, main_trending_headline, comment, sub_trending_col_1, sub_trending_col_2, sub_trending_col_3
+from .models import sliders, main_trending_headline, comment, sub_trending_col_1, sub_trending_col_2, \
+    sub_trending_col_3, comment_col1
 from django.contrib import messages
 
 
@@ -55,4 +56,19 @@ def comments(request):
 
 def detail_col1(request, id):
     det_col1 = sub_trending_col_1.objects.get(id=id)
-    return render(request, 'detail_col1.html', {'det_col1': det_col1})
+    comment1 = comment_col1.objects.all()
+    return render(request, 'detail_col1.html', {'det_col1': det_col1, 'comment1': comment1})
+
+
+def comment_col11(request):
+    if request.method == 'POST':
+        comment = request.POST.get('comment')
+        full_name = request.POST.get('full_name')
+        email = request.POST.get('email')
+        phone = request.POST.get('phone')
+
+        comment1 = comment_col1(comment=comment, full_name=full_name, email=email, phone=phone)
+        comment1.save()
+        messages.success(request, "Comment uploaded successfully")
+
+        return redirect('index')
