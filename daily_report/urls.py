@@ -9,5 +9,6 @@ urlpatterns = [
     path('category', views.category, name='category'),
     path('starter_page', views.starter_page, name='starter_page'),
     path('blog_details/<id>', views.blog_details, name='blog_details'),
-    path('comments', views.comments, name='comments')
+    path('comments', views.comments, name='comments'),
+    path('detail_col1/<id>', views.detail_col1, name='detail_col1')
 ]

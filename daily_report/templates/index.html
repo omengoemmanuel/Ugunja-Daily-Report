@@ -157,13 +157,13 @@
                             <div class="col-lg-4 border-start custom-border">
                                 {% for col1 in sub_trend_1 %}
                                     <div class="post-entry">
-                                        <a href="blog-details.html"><img
+                                        <a href="/detail_col1/{{ col1.id }}"><img
                                                 src="/media/{{ col1.trending_photo }}" alt=""
                                                 class="img-fluid"></a>
                                         <div class="post-meta"><span class="date">{{ col1.trending_type }}</span> <span
                                                 class="mx-1">•</span>
                                             <span>{{ col1.date }}</span></div>
-                                        <h2><a href="blog-details.html">{{ col1.title }}</a></h2>
+                                        <h2><a href="/detail_col1/{{ col1.id }}">{{ col1.title }}</a></h2>
                                     </div>
                                 {% endfor %}
                             </div> <!-- end sub trending column one -->
@@ -188,43 +188,15 @@
                                 <div class="trending">
                                     <h3>Trending</h3>
                                     <ul class="trending-post">
+                                        {% for col3 in sub_trend_3 %}
                                         <li>
                                             <a href="blog-details.html">
-                                                <span class="number">1</span>
-                                                <h3>The Best Homemade Masks for Face (keep the Pimples Away)</h3>
-                                                <span class="author">Jane Cooper</span>
+                                                <span class="number">{{ forloop.counter }}</span>
+                                                <h3>{{ col3.trending_title }}</h3>
+                                                <span class="author">{{ col3.writter }}</span>
                                             </a>
                                         </li>
-                                        <li>
-                                            <a href="blog-details.html">
-                                                <span class="number">2</span>
-                                                <h3>17 Pictures of Medium Length Hair in Layers That Will Inspire Your
-                                                    New Haircut</h3>
-                                                <span class="author">Wade Warren</span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="blog-details.html">
-                                                <span class="number">3</span>
-                                                <h3>13 Amazing Poems from Shel Silverstein with Valuable Life
-                                                    Lessons</h3>
-                                                <span class="author">Esther Howard</span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="blog-details.html">
-                                                <span class="number">4</span>
-                                                <h3>9 Half-up/half-down Hairstyles for Long and Medium Hair</h3>
-                                                <span class="author">Cameron Williamson</span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="blog-details.html">
-                                                <span class="number">5</span>
-                                                <h3>Life Insurance And Pregnancy: A Working Mom’s Guide</h3>
-                                                <span class="author">Jenny Wilson</span>
-                                            </a>
-                                        </li>
+                                        {% endfor %}
                                     </ul>
                                 </div>
 

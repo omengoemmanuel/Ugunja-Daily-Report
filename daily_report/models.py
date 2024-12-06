@@ -58,6 +58,7 @@ class sub_trending_col_1(models.Model):
     trending_type = models.CharField(max_length=30, null=False, blank=False, choices=trending_choice)
     date = models.DateField()
     title = models.CharField(max_length=300, null=False, blank=False)
+    description = models.TextField(default="")
 
     def __str__(self):
         return self.title
@@ -77,6 +78,7 @@ class sub_trending_col_2(models.Model):
     trending_type = models.CharField(max_length=30, null=False, blank=False, choices=trending_choice)
     date = models.DateField()
     title = models.CharField(max_length=300, null=False, blank=False)
+    description = models.TextField(default="")
 
     def __str__(self):
         return self.title
@@ -84,7 +86,8 @@ class sub_trending_col_2(models.Model):
 
 class sub_trending_col_3(models.Model):
     trending_title = models.CharField(max_length=300, null=False, blank=False)
-    writter = models.ImageField(upload_to='uploads/writters', default='uploads/writters/writter.jpg')
+    writter = models.CharField(max_length=30, null=False, blank=False)
+    description = models.TextField(default="")
 
     def __str__(self):
         return self.trending_title

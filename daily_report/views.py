@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import sliders, main_trending_headline, comment, sub_trending_col_1, sub_trending_col_2
+from .models import sliders, main_trending_headline, comment, sub_trending_col_1, sub_trending_col_2, sub_trending_col_3
 from django.contrib import messages
 
 
@@ -9,7 +9,10 @@ def index(request):
     trend = main_trending_headline.objects.all()
     sub_trend_1 = sub_trending_col_1.objects.all()
     sub_trend_2 = sub_trending_col_2.objects.all()
-    return render(request, 'index.html', {'slide': slide, 'trend': trend, 'sub_trend_1': sub_trend_1, 'sub_trend_2':sub_trend_2})
+    sub_trend_3 = sub_trending_col_3.objects.all()
+    return render(request, 'index.html',
+                  {'slide': slide, 'trend': trend, 'sub_trend_1': sub_trend_1, 'sub_trend_2': sub_trend_2,
+                   'sub_trend_3': sub_trend_3})
 
 
 def about(request):
@@ -48,3 +51,8 @@ def comments(request):
         commen.save()
         messages.success(request, "Comment uploaded successfully")
         return redirect('index')
+
+
+def detail_col1(request, id):
+    det_col1 = sub_trending_col_1.objects.get(id=id)
+    return render(request, 'detail_col1.html', {'det_col1': det_col1})
