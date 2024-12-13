@@ -94,11 +94,21 @@ class sub_trending_col_2(models.Model):
     def __str__(self):
         return self.title
 
+class comment_col2(models.Model):
+    comment = models.TextField()
+    full_name = models.CharField(max_length=30, null=False, blank=False)
+    email = models.EmailField()
+    phone = models.CharField(max_length=13, null=False, blank=False)
+    image = models.ImageField(upload_to='uploads/comments', default='uploads/comments/default.jpg')
+
+    def __str__(self):
+        return self.full_name
 
 class sub_trending_col_3(models.Model):
     trending_title = models.CharField(max_length=300, null=False, blank=False)
     writter = models.CharField(max_length=30, null=False, blank=False)
     description = models.TextField(default="")
+    
 
     def __str__(self):
         return self.trending_title

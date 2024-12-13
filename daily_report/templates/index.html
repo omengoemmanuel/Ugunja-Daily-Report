@@ -171,12 +171,12 @@
                             <div class="col-lg-4 border-start custom-border">
                                 {% for col2 in sub_trend_2 %}
                                 <div class="post-entry">
-                                    <a href="blog-details.html"><img
+                                    <a href="/detail_col2/{{ col2.id }}"><img
                                             src="/media/{{ col2.trending_photo }}" alt=""
                                             class="img-fluid"></a>
                                     <div class="post-meta"><span class="date">{{ col2.trending_type }}</span> <span
                                             class="mx-1">•</span> <span>{{ col2.date }}</span></div>
-                                    <h2><a href="blog-details.html">{{ col2.title }}</a></h2>
+                                    <h2><a href="/detail_col2/{{ col2.id }}">{{ col2.title }}</a></h2>
                                 </div>
                                 {% endfor %}
                             </div>
@@ -190,7 +190,7 @@
                                     <ul class="trending-post">
                                         {% for col3 in sub_trend_3 %}
                                         <li>
-                                            <a href="blog-details.html">
+                                            <a href="/detail_col3/{{ col3.id }}">
                                                 <span class="number">{{ forloop.counter }}</span>
                                                 <h3>{{ col3.trending_title }}</h3>
                                                 <span class="author">{{ col3.writter }}</span>
