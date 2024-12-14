@@ -16,5 +16,8 @@ urlpatterns = [
     path('comment_col22', views.comment_col22, name='comment_col22'),
     path('detail_col3/<id>', views.detail_col3, name='detail_col3'),
     path('comment_col33', views.comment_col33, name='comment_col33'),
+
+    # Culture Section
     path('main_culture/<id>', views.main_culture, name='main_culture'),
+    path('cul_col2/<id>', views.cul_col2, name='cul_col2'),
 ]

@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from .models import sliders, main_trending_headline, comment, sub_trending_col_1, sub_trending_col_2, \
-    sub_trending_col_3, comment_col1, comment_col2, comment_col3, culture_main, culture_main_support
+    sub_trending_col_3, comment_col1, comment_col2, comment_col3, culture_main, culture_main_support, culture_col11, \
+    culture_col12
 from django.contrib import messages
 
 
@@ -12,9 +13,12 @@ def index(request):
     sub_trend_2 = sub_trending_col_2.objects.all()
     sub_trend_3 = sub_trending_col_3.objects.all()
     Culture_main = culture_main.objects.all()
+    culture_col1 = culture_col11.objects.all()
+    culture_col2 = culture_col12.objects.all()
     return render(request, 'index.html',
                   {'slide': slide, 'trend': trend, 'sub_trend_1': sub_trend_1, 'sub_trend_2': sub_trend_2,
-                   'sub_trend_3': sub_trend_3, 'Culture_main': Culture_main})
+                   'sub_trend_3': sub_trend_3, 'Culture_main': Culture_main, 'culture_col1': culture_col1,
+                   'culture_col2': culture_col2,})
 
 
 def about(request):
@@ -114,8 +118,15 @@ def comment_col33(request):
 
         return redirect('index')
 
+
 # culture section
+
 def main_culture(request, id):
     cul = culture_main.objects.get(id=id)
     supp = culture_main_support.objects.all()
-    return render(request, 'culture/main.html',{'cul': cul, 'supp': supp})
+    return render(request, 'culture/main.html', {'cul': cul, 'supp': supp})
+
+
+def cul_col2(request, id):
+    cult_col12 = culture_col12.objects.get(id=id)
+    return render(request, 'culture/cul_col.html', {'cult_col12': cult_col12})

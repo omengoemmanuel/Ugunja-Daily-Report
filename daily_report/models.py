@@ -130,6 +130,7 @@ class comment_col3(models.Model):
 
 
 # culture section
+
 class culture_main(models.Model):
     photo = models.ImageField(upload_to='uploads/culture', default='uploads/culture/culture.jpg')
     type = models.CharField(max_length=30, null=False, blank=False, default='culture')
@@ -140,8 +141,6 @@ class culture_main(models.Model):
     writer_name = models.CharField(max_length=30, null=False, blank=False)
     writter_photo = models.ImageField(upload_to='uploads/writters', default='uploads/writters/writter.jpg', blank=False,
                                       null=False)
-
-    # support culture with photos
 
     def __str__(self):
         return self.title
@@ -155,3 +154,29 @@ class culture_main_support(models.Model):
 
     def __str__(self):
         return self.supporting_photo_title
+
+
+# culture column one
+# Post one
+class culture_col11(models.Model):
+    photo = models.ImageField(upload_to='uploads/culture', default='uploads/culture/culture.jpg')
+    type = models.CharField(max_length=30, null=False, blank=False, default='culture')
+    date = models.DateField(default=now, null=False, blank=False)
+    title = models.CharField(max_length=300, null=False, blank=False)
+    brief_description = models.TextField(default="")
+    description = models.TextField(default="")
+    writer_name = models.CharField(max_length=30, null=False, blank=False)
+
+    def __str__(self):
+        return self.title
+
+
+class culture_col12(models.Model):
+    type = models.CharField(max_length=30, null=False, blank=False, default='culture')
+    date = models.DateField(default=now, null=False, blank=False)
+    title = models.CharField(max_length=300, null=False, blank=False)
+    description = models.TextField(default="")
+    writer_name = models.CharField(max_length=30, null=False, blank=False)
+
+    def __str__(self):
+        return self.title

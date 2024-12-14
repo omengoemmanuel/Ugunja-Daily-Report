@@ -248,25 +248,25 @@
 
                     <div class="row">
                         <div class="col-lg-4">
+                            {% for col11 in culture_col1 %}
                             <div class="post-list border-bottom">
-                                <a href="blog-details.html"><img src="{% static 'assets/img/post-landscape-1.jpg' %}"
+                                <a href="blog-details.html"><img src="/media/{{ col11.photo }}"
                                                                  alt="" class="img-fluid"></a>
-                                <div class="post-meta"><span class="date">Culture</span> <span class="mx-1">•</span>
-                                    <span>Jul 5th '22</span></div>
-                                <h2 class="mb-2"><a href="blog-details.html">11 Work From Home Part-Time Jobs You Can Do
-                                    Now</a></h2>
-                                <span class="author mb-3 d-block">Jenny Wilson</span>
-                                <p class="mb-4 d-block">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vero
-                                    temporibus repudiandae, inventore pariatur numquam cumque possimus</p>
+                                <div class="post-meta"><span class="date">{{ col11.type }}</span> <span class="mx-1">•</span>
+                                    <span>{{ col11.date }}</span></div>
+                                <h2 class="mb-2"><a href="blog-details.html">{{ col11.title }}</a></h2>
+                                <span class="author mb-3 d-block">{{ col11.writer_name }}</span>
+                                <p class="mb-4 d-block">{{ col11.brief_description }}</p>
                             </div>
-
+                            {% endfor %}
+                        {% for col12 in culture_col2 %}
                             <div class="post-list">
-                                <div class="post-meta"><span class="date">Culture</span> <span class="mx-1">•</span>
-                                    <span>Jul 5th '22</span></div>
-                                <h2 class="mb-2"><a href="blog-details.html">5 Great Startup Tips for Female
-                                    Founders</a></h2>
-                                <span class="author mb-3 d-block">Jenny Wilson</span>
+                                <div class="post-meta"><span class="date">{{ col12.type }}</span> <span class="mx-1">•</span>
+                                    <span>{{ col12.date }}</span></div>
+                                <h2 class="mb-2"><a href="/cul_col2/{{ col12.id }}">{{ col12.title }}</a></h2>
+                                <span class="author mb-3 d-block">{{ col12.writer_name }}</span>
                             </div>
+                        {% endfor %}
                         </div>
                         <div class="col-lg-8">
                             <div class="post-list">
