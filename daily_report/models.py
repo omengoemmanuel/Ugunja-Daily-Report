@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils.timezone import now
 
 
 # Create your models here.
@@ -94,6 +95,7 @@ class sub_trending_col_2(models.Model):
     def __str__(self):
         return self.title
 
+
 class comment_col2(models.Model):
     comment = models.TextField()
     full_name = models.CharField(max_length=30, null=False, blank=False)
@@ -104,11 +106,52 @@ class comment_col2(models.Model):
     def __str__(self):
         return self.full_name
 
+
 class sub_trending_col_3(models.Model):
     trending_title = models.CharField(max_length=300, null=False, blank=False)
     writter = models.CharField(max_length=30, null=False, blank=False)
     description = models.TextField(default="")
-    
+    photo = models.ImageField(upload_to='uploads/sub trending col 3', default='uploads/sub trending col 3/sub.jpg')
+    trend_date = models.DateField(default=now, null=False, blank=False)
 
     def __str__(self):
         return self.trending_title
+
+
+class comment_col3(models.Model):
+    comment = models.TextField()
+    full_name = models.CharField(max_length=30, null=False, blank=False)
+    email = models.EmailField()
+    phone = models.CharField(max_length=13, null=False, blank=False)
+    image = models.ImageField(upload_to='uploads/comments', default='uploads/comments/default.jpg')
+
+    def __str__(self):
+        return self.full_name
+
+
+# culture section
+class culture_main(models.Model):
+    photo = models.ImageField(upload_to='uploads/culture', default='uploads/culture/culture.jpg')
+    type = models.CharField(max_length=30, null=False, blank=False, default='culture')
+    date = models.DateField(default=now, null=False, blank=False)
+    title = models.CharField(max_length=300, null=False, blank=False)
+    brief_description = models.TextField(default="")
+    description = models.TextField(default="")
+    writer_name = models.CharField(max_length=30, null=False, blank=False)
+    writter_photo = models.ImageField(upload_to='uploads/writters', default='uploads/writters/writter.jpg', blank=False,
+                                      null=False)
+
+    # support culture with photos
+
+    def __str__(self):
+        return self.title
+
+
+# photos to support main culture
+class culture_main_support(models.Model):
+    supporting_photo = models.ImageField(upload_to='uploads/culture', default='uploads/culture/culture.jpg')
+    supporting_photo_title = models.CharField(max_length=300, null=False, blank=False, default='')
+    supporting_photo_description = models.CharField(max_length=300, null=False, blank=False, default="")
+
+    def __str__(self):
+        return self.supporting_photo_title

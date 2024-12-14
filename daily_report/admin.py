@@ -1,6 +1,6 @@
 from django.contrib import admin
 from .models import sliders, main_trending_headline, comment, sub_trending_col_1, sub_trending_col_2, \
-    sub_trending_col_3, comment_col1, comment_col2
+    sub_trending_col_3, comment_col1, comment_col2, comment_col3, culture_main, culture_main_support
 
 # Register your models here.
 admin.site.register(sliders)
@@ -11,3 +11,6 @@ admin.site.register(sub_trending_col_2)
 admin.site.register(sub_trending_col_3)
 admin.site.register(comment_col1)
 admin.site.register(comment_col2)
+admin.site.register(comment_col3)
+admin.site.register(culture_main)
+admin.site.register(culture_main_support)

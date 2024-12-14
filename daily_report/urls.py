@@ -14,5 +14,7 @@ urlpatterns = [
     path('comment_col11', views.comment_col11, name='comment_col11'),
     path('detail_col2/<id>', views.detail_col2, name='detail_col2'),
     path('comment_col22', views.comment_col22, name='comment_col22'),
-    path('detail_col3/<id>', views.detail_col3, name='detail_col3')
+    path('detail_col3/<id>', views.detail_col3, name='detail_col3'),
+    path('comment_col33', views.comment_col33, name='comment_col33'),
+    path('main_culture/<id>', views.main_culture, name='main_culture'),
 ]

@@ -73,10 +73,10 @@
             <article>
                 <header class="mb-4">
                     <h1 class="fw-bolder mb-1">{{ det_col3.trending_title }}</h1>
-                    <div class="text-muted fst-italic mb-2">Posted on </div>
+                    <div class="text-muted fst-italic mb-2">Posted on {{ det_col3.trend_date }}</div>
                 </header>
                 <figure class="mb-4">
-                    <img class="img-fluid rounded" src="" alt="Blog post image">
+                    <img class="img-fluid rounded" src="/media/{{ det_col3.photo }}" alt="Blog post image">
                 </figure>
                 <section class="mb-5">
                     <p class="fs-5 mb-4">{{ det_col3.description }}.</p>
@@ -87,7 +87,7 @@
                     <div>
                         <div class="card-body">
                             <h4>Leave a Comment</h4>
-                            <form class="mb-4" method="post" action="/comment_col22">
+                            <form class="mb-4" method="post" action="/comment_col33">
                                 {% csrf_token %}
                                 <textarea class="form-control" rows="3"
                                           placeholder="Join the discussion and leave a comment!" required
@@ -112,7 +112,7 @@
                                     </div>
                                 </div>
                             </form>
-                            {% for com in comment2 %}
+                            {% for com in comment3 %}
                                 <div class="d-flex mb-4">
                                     <div class="flex-shrink-0"><img class="rounded-circle"
                                                                     src="/media/{{ com.image }}" alt="..." height="50"
