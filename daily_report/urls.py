@@ -20,4 +20,6 @@ urlpatterns = [
     # Culture Section
     path('main_culture/<id>', views.main_culture, name='main_culture'),
     path('cul_col2/<id>', views.cul_col2, name='cul_col2'),
+    path('cul_col1/<id>', views.cul_col1, name='cul_col1'),
+    path('comm_cul_col1', views.comm_cul_col1, name='comm_cul_col1'),
 ]

@@ -250,16 +250,16 @@
                         <div class="col-lg-4">
                             {% for col11 in culture_col1 %}
                             <div class="post-list border-bottom">
-                                <a href="blog-details.html"><img src="/media/{{ col11.photo }}"
+                                <a href="/cul_col1/{{ col11.id }}"><img src="/media/{{ col11.photo }}"
                                                                  alt="" class="img-fluid"></a>
                                 <div class="post-meta"><span class="date">{{ col11.type }}</span> <span class="mx-1">•</span>
                                     <span>{{ col11.date }}</span></div>
-                                <h2 class="mb-2"><a href="blog-details.html">{{ col11.title }}</a></h2>
+                                <h2 class="mb-2"><a href="/cul_col1/{{ col11.id }}">{{ col11.title }}</a></h2>
                                 <span class="author mb-3 d-block">{{ col11.writer_name }}</span>
                                 <p class="mb-4 d-block">{{ col11.brief_description }}</p>
                             </div>
                             {% endfor %}
-                        {% for col12 in culture_col2 %}
+                        {% for col12 in culture_col_2 %}
                             <div class="post-list">
                                 <div class="post-meta"><span class="date">{{ col12.type }}</span> <span class="mx-1">•</span>
                                     <span>{{ col12.date }}</span></div>
@@ -268,19 +268,19 @@
                             </div>
                         {% endfor %}
                         </div>
+                    {% for col2 in cul_col_2 %}
                         <div class="col-lg-8">
                             <div class="post-list">
-                                <a href="blog-details.html"><img src="{% static 'assets/img/post-landscape-2.jpg' %}"
+                                <a href="blog-details.html"><img src="/media/{{ col2.photo }}"
                                                                  alt="" class="img-fluid"></a>
-                                <div class="post-meta"><span class="date">Culture</span> <span class="mx-1">•</span>
-                                    <span>Jul 5th '22</span></div>
-                                <h2 class="mb-2"><a href="blog-details.html">How to Avoid Distraction and Stay Focused
-                                    During Video Calls?</a></h2>
-                                <span class="author mb-3 d-block">Jenny Wilson</span>
-                                <p class="mb-4 d-block">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vero
-                                    temporibus repudiandae, inventore pariatur numquam cumque possimus</p>
+                                <div class="post-meta"><span class="date">{{ col2.type }}</span> <span class="mx-1">•</span>
+                                    <span>{{ col2.date }}</span></div>
+                                <h2 class="mb-2"><a href="blog-details.html">{{ col2.title }}</a></h2>
+                                <span class="author mb-3 d-block">{{ col2.writer_name }}</span>
+                                <p class="mb-4 d-block">{{ col2.brief_description }}</p>
                             </div>
                         </div>
+                    {% endfor %}
                     </div>
                 </div>
 

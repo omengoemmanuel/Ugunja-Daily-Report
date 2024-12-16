@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from .models import sliders, main_trending_headline, comment, sub_trending_col_1, sub_trending_col_2, \
     sub_trending_col_3, comment_col1, comment_col2, comment_col3, culture_main, culture_main_support, culture_col11, \
-    culture_col12
+    culture_col12, comment_cul_col1, culture_col2
 from django.contrib import messages
 
 
@@ -14,11 +14,12 @@ def index(request):
     sub_trend_3 = sub_trending_col_3.objects.all()
     Culture_main = culture_main.objects.all()
     culture_col1 = culture_col11.objects.all()
-    culture_col2 = culture_col12.objects.all()
+    culture_col_2 = culture_col12.objects.all()
+    cul_col_2 = culture_col2.objects.all()
     return render(request, 'index.html',
                   {'slide': slide, 'trend': trend, 'sub_trend_1': sub_trend_1, 'sub_trend_2': sub_trend_2,
                    'sub_trend_3': sub_trend_3, 'Culture_main': Culture_main, 'culture_col1': culture_col1,
-                   'culture_col2': culture_col2,})
+                   'culture_col_2': culture_col_2,'cul_col_2': cul_col_2})
 
 
 def about(request):
@@ -130,3 +131,22 @@ def main_culture(request, id):
 def cul_col2(request, id):
     cult_col12 = culture_col12.objects.get(id=id)
     return render(request, 'culture/cul_col.html', {'cult_col12': cult_col12})
+
+def cul_col1(request, id):
+    cul_11 = culture_col11.objects.get(id=id)
+    cul_comm = comment_cul_col1.objects.all()
+    return render(request, 'culture/cul_col1.html', {'cul_11': cul_11, 'cul_comm': cul_comm})
+
+
+def comm_cul_col1(request):
+    if request.method == 'POST':
+        comm = request.POST.get('comment')
+        full_name = request.POST.get('full_name')
+        email = request.POST.get('email')
+        phone = request.POST.get('phone')
+
+        comment2 = comment_cul_col1(comm = comm, full_name=full_name, email=email, phone=phone)
+        comment2.save()
+        messages.success(request, "Comment uploaded successfully")
+
+        return redirect('index')

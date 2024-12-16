@@ -180,3 +180,30 @@ class culture_col12(models.Model):
 
     def __str__(self):
         return self.title
+
+
+# col 1 comment
+class comment_cul_col1(models.Model):
+    comm = models.TextField(null=False, blank=False)
+    full_name = models.CharField(max_length=50, null=False, blank=False)
+    email = models.EmailField()
+    phone = models.CharField(max_length=13, null=False, blank=False)
+    image = models.ImageField(upload_to='uploads/comments', default='uploads/comments/default.jpg')
+
+    def __str__(self):
+        return self.full_name
+
+
+# culture col 2
+class culture_col2(models.Model):
+    photo = models.ImageField(upload_to='uploads/culture', default='uploads/culture/culture.jpg')
+    type = models.CharField(max_length=30, null=False, blank=False, default='culture')
+    date = models.DateField(default=now, null=False, blank=False)
+    title = models.CharField(max_length=300, null=False, blank=False)
+    brief_description = models.TextField(default="")
+    description = models.TextField(default="")
+    writer_name = models.CharField(max_length=30, null=False, blank=False, default='')
+
+
+    def __str__(self):
+        return self.title
