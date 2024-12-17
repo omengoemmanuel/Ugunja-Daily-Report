@@ -207,3 +207,16 @@ class culture_col2(models.Model):
 
     def __str__(self):
         return self.title
+
+
+# culture col 3
+class culture_col3(models.Model):
+    type = models.CharField(max_length=30, null=False, blank=False, default='culture')
+    date = models.DateField(default=now, null=False, blank=False)
+    title = models.CharField(max_length=300, null=False, blank=False)
+    writer_name = models.CharField(max_length=30, null=False, blank=False)
+    photo = models.ImageField(upload_to='uploads/culture', default='uploads/culture/culture.jpg')
+    description = models.TextField(default="")
+
+    def __str__(self):
+        return self.title

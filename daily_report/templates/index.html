@@ -259,7 +259,7 @@
                                 <p class="mb-4 d-block">{{ col11.brief_description }}</p>
                             </div>
                             {% endfor %}
-                        {% for col12 in culture_col_2 %}
+                        {% for col12 in culturecol2 %}
                             <div class="post-list">
                                 <div class="post-meta"><span class="date">{{ col12.type }}</span> <span class="mx-1">•</span>
                                     <span>{{ col12.date }}</span></div>
@@ -271,11 +271,11 @@
                     {% for col2 in cul_col_2 %}
                         <div class="col-lg-8">
                             <div class="post-list">
-                                <a href="blog-details.html"><img src="/media/{{ col2.photo }}"
+                                <a href="/cul_col22/{{ col2.id }}"><img src="/media/{{ col2.photo }}"
                                                                  alt="" class="img-fluid"></a>
                                 <div class="post-meta"><span class="date">{{ col2.type }}</span> <span class="mx-1">•</span>
                                     <span>{{ col2.date }}</span></div>
-                                <h2 class="mb-2"><a href="blog-details.html">{{ col2.title }}</a></h2>
+                                <h2 class="mb-2"><a href="/cul_col22/{{ col2.id }}">{{ col2.title }}</a></h2>
                                 <span class="author mb-3 d-block">{{ col2.writer_name }}</span>
                                 <p class="mb-4 d-block">{{ col2.brief_description }}</p>
                             </div>

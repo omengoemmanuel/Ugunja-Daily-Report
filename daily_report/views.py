@@ -14,12 +14,12 @@ def index(request):
     sub_trend_3 = sub_trending_col_3.objects.all()
     Culture_main = culture_main.objects.all()
     culture_col1 = culture_col11.objects.all()
-    culture_col_2 = culture_col12.objects.all()
+    culturecol2 = culture_col12.objects.all()
     cul_col_2 = culture_col2.objects.all()
     return render(request, 'index.html',
                   {'slide': slide, 'trend': trend, 'sub_trend_1': sub_trend_1, 'sub_trend_2': sub_trend_2,
                    'sub_trend_3': sub_trend_3, 'Culture_main': Culture_main, 'culture_col1': culture_col1,
-                   'culture_col_2': culture_col_2,'cul_col_2': cul_col_2})
+                   'culturecol2': culturecol2,'cul_col_2': cul_col_2})
 
 
 def about(request):
@@ -150,3 +150,7 @@ def comm_cul_col1(request):
         messages.success(request, "Comment uploaded successfully")
 
         return redirect('index')
+
+def cul_col22(request, id):
+    cul_22 = culture_col2.objects.get(id=id)
+    return render(request, 'culture/cul_col2.html', {'cul_22': cul_22})
