@@ -79,25 +79,25 @@
             <div class="swiper init-swiper">
 
                 <script type="application/json" class="swiper-config">
-        {
-          "loop": true,
-          "speed": 600,
-          "autoplay": {
-            "delay": 5000
-          },
-          "slidesPerView": "auto",
-          "centeredSlides": true,
-          "pagination": {
-            "el": ".swiper-pagination",
-            "type": "bullets",
-            "clickable": true
-          },
-          "navigation": {
-            "nextEl": ".swiper-button-next",
-            "prevEl": ".swiper-button-prev"
-          }
-        }
-      </script>
+                    {
+                      "loop": true,
+                      "speed": 600,
+                      "autoplay": {
+                        "delay": 5000
+                      },
+                      "slidesPerView": "auto",
+                      "centeredSlides": true,
+                      "pagination": {
+                        "el": ".swiper-pagination",
+                        "type": "bullets",
+                        "clickable": true
+                      },
+                      "navigation": {
+                        "nextEl": ".swiper-button-next",
+                        "prevEl": ".swiper-button-prev"
+                      }
+                    }
+                </script>
 
                 <div class="swiper-wrapper">
                     {% for slid in slide %}
@@ -170,14 +170,14 @@
                             <!-- sub trending column two -->
                             <div class="col-lg-4 border-start custom-border">
                                 {% for col2 in sub_trend_2 %}
-                                <div class="post-entry">
-                                    <a href="/detail_col2/{{ col2.id }}"><img
-                                            src="/media/{{ col2.trending_photo }}" alt=""
-                                            class="img-fluid"></a>
-                                    <div class="post-meta"><span class="date">{{ col2.trending_type }}</span> <span
-                                            class="mx-1">•</span> <span>{{ col2.date }}</span></div>
-                                    <h2><a href="/detail_col2/{{ col2.id }}">{{ col2.title }}</a></h2>
-                                </div>
+                                    <div class="post-entry">
+                                        <a href="/detail_col2/{{ col2.id }}"><img
+                                                src="/media/{{ col2.trending_photo }}" alt=""
+                                                class="img-fluid"></a>
+                                        <div class="post-meta"><span class="date">{{ col2.trending_type }}</span> <span
+                                                class="mx-1">•</span> <span>{{ col2.date }}</span></div>
+                                        <h2><a href="/detail_col2/{{ col2.id }}">{{ col2.title }}</a></h2>
+                                    </div>
                                 {% endfor %}
                             </div>
                             <!-- end sub trending column two -->
@@ -189,13 +189,13 @@
                                     <h3>Trending</h3>
                                     <ul class="trending-post">
                                         {% for col3 in sub_trend_3 %}
-                                        <li>
-                                            <a href="/detail_col3/{{ col3.id }}">
-                                                <span class="number">{{ forloop.counter }}</span>
-                                                <h3>{{ col3.trending_title }}</h3>
-                                                <span class="author">{{ col3.writter }}</span>
-                                            </a>
-                                        </li>
+                                            <li>
+                                                <a href="/detail_col3/{{ col3.id }}">
+                                                    <span class="number">{{ forloop.counter }}</span>
+                                                    <h3>{{ col3.trending_title }}</h3>
+                                                    <span class="author">{{ col3.writter }}</span>
+                                                </a>
+                                            </li>
                                         {% endfor %}
                                     </ul>
                                 </div>
@@ -226,112 +226,77 @@
             <div class="row">
                 <div class="col-md-9">
                     {% for cul in Culture_main %}
-                    <div class="d-lg-flex post-entry">
-                        <a href="/main_culture/{{ cul.id }}" class="me-4 thumbnail mb-4 mb-lg-0 d-inline-block">
-                            <img src="/media/{{ cul.photo }}" alt="" class="img-fluid">
-                        </a>
-                        <div>
-                            <div class="post-meta"><span class="date">{{ cul.type }}</span> <span class="mx-1">•</span> <span>{{ cul.date }}</span>
-                            </div>
-                            <h3><a href="/main_culture/{{ cul.id }}">{{ cul.title }}</a></h3>
-                            <p>{{ cul.brief_description }}</p>
-                            <div class="d-flex align-items-center author">
-                                <div class="photo"><img src="/media/{{ cul.writter_photo }}" alt=""
-                                                        class="img-fluid"></div>
-                                <div class="name">
-                                    <h3 class="m-0 p-0">{{ cul.writer_name }}</h3>
+                        <div class="d-lg-flex post-entry">
+                            <a href="/main_culture/{{ cul.id }}" class="me-4 thumbnail mb-4 mb-lg-0 d-inline-block">
+                                <img src="/media/{{ cul.photo }}" alt="" class="img-fluid">
+                            </a>
+                            <div>
+                                <div class="post-meta"><span class="date">{{ cul.type }}</span> <span
+                                        class="mx-1">•</span> <span>{{ cul.date }}</span>
+                                </div>
+                                <h3><a href="/main_culture/{{ cul.id }}">{{ cul.title }}</a></h3>
+                                <p>{{ cul.brief_description }}</p>
+                                <div class="d-flex align-items-center author">
+                                    <div class="photo"><img src="/media/{{ cul.writter_photo }}" alt=""
+                                                            class="img-fluid"></div>
+                                    <div class="name">
+                                        <h3 class="m-0 p-0">{{ cul.writer_name }}</h3>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
                     {% endfor %}
 
                     <div class="row">
                         <div class="col-lg-4">
                             {% for col11 in culture_col1 %}
-                            <div class="post-list border-bottom">
-                                <a href="/cul_col1/{{ col11.id }}"><img src="/media/{{ col11.photo }}"
-                                                                 alt="" class="img-fluid"></a>
-                                <div class="post-meta"><span class="date">{{ col11.type }}</span> <span class="mx-1">•</span>
-                                    <span>{{ col11.date }}</span></div>
-                                <h2 class="mb-2"><a href="/cul_col1/{{ col11.id }}">{{ col11.title }}</a></h2>
-                                <span class="author mb-3 d-block">{{ col11.writer_name }}</span>
-                                <p class="mb-4 d-block">{{ col11.brief_description }}</p>
-                            </div>
+                                <div class="post-list border-bottom">
+                                    <a href="/cul_col1/{{ col11.id }}"><img src="/media/{{ col11.photo }}"
+                                                                            alt="" class="img-fluid"></a>
+                                    <div class="post-meta"><span class="date">{{ col11.type }}</span> <span
+                                            class="mx-1">•</span>
+                                        <span>{{ col11.date }}</span></div>
+                                    <h2 class="mb-2"><a href="/cul_col1/{{ col11.id }}">{{ col11.title }}</a></h2>
+                                    <span class="author mb-3 d-block">{{ col11.writer_name }}</span>
+                                    <p class="mb-4 d-block">{{ col11.brief_description }}</p>
+                                </div>
                             {% endfor %}
-                        {% for col12 in culturecol2 %}
-                            <div class="post-list">
-                                <div class="post-meta"><span class="date">{{ col12.type }}</span> <span class="mx-1">•</span>
-                                    <span>{{ col12.date }}</span></div>
-                                <h2 class="mb-2"><a href="/cul_col2/{{ col12.id }}">{{ col12.title }}</a></h2>
-                                <span class="author mb-3 d-block">{{ col12.writer_name }}</span>
+                            {% for col12 in culturecol2 %}
+                                <div class="post-list">
+                                    <div class="post-meta"><span class="date">{{ col12.type }}</span> <span
+                                            class="mx-1">•</span>
+                                        <span>{{ col12.date }}</span></div>
+                                    <h2 class="mb-2"><a href="/cul_col2/{{ col12.id }}">{{ col12.title }}</a></h2>
+                                    <span class="author mb-3 d-block">{{ col12.writer_name }}</span>
+                                </div>
+                            {% endfor %}
+                        </div>
+                        {% for col2 in cul_col_2 %}
+                            <div class="col-lg-8">
+                                <div class="post-list">
+                                    <a href="/cul_col22/{{ col2.id }}"><img src="/media/{{ col2.photo }}"
+                                                                            alt="" class="img-fluid"></a>
+                                    <div class="post-meta"><span class="date">{{ col2.type }}</span> <span class="mx-1">•</span>
+                                        <span>{{ col2.date }}</span></div>
+                                    <h2 class="mb-2"><a href="/cul_col22/{{ col2.id }}">{{ col2.title }}</a></h2>
+                                    <span class="author mb-3 d-block">{{ col2.writer_name }}</span>
+                                    <p class="mb-4 d-block">{{ col2.brief_description }}</p>
+                                </div>
                             </div>
                         {% endfor %}
-                        </div>
-                    {% for col2 in cul_col_2 %}
-                        <div class="col-lg-8">
-                            <div class="post-list">
-                                <a href="/cul_col22/{{ col2.id }}"><img src="/media/{{ col2.photo }}"
-                                                                 alt="" class="img-fluid"></a>
-                                <div class="post-meta"><span class="date">{{ col2.type }}</span> <span class="mx-1">•</span>
-                                    <span>{{ col2.date }}</span></div>
-                                <h2 class="mb-2"><a href="/cul_col22/{{ col2.id }}">{{ col2.title }}</a></h2>
-                                <span class="author mb-3 d-block">{{ col2.writer_name }}</span>
-                                <p class="mb-4 d-block">{{ col2.brief_description }}</p>
-                            </div>
-                        </div>
-                    {% endfor %}
                     </div>
                 </div>
 
                 <div class="col-md-3">
-                    <div class="post-list border-bottom">
-                        <div class="post-meta"><span class="date">Culture</span> <span class="mx-1">•</span> <span>Jul 5th '22</span>
+                    {% for cul in cul_col_3 %}
+                        <div class="post-list border-bottom">
+                            <div class="post-meta"><span class="date">{{ cul.type }}</span> <span class="mx-1">•</span>
+                                <span>{{ cul.date }}</span>
+                            </div>
+                            <h2 class="mb-2"><a href="/cul_col3/{{ cul.id }}">{{ cul.title }}</a></h2>
+                            <span class="author mb-3 d-block">{{ cul.writer_name }}</span>
                         </div>
-                        <h2 class="mb-2"><a href="blog-details.html">How to Avoid Distraction and Stay Focused During
-                            Video Calls?</a></h2>
-                        <span class="author mb-3 d-block">Jenny Wilson</span>
-                    </div>
-
-                    <div class="post-list border-bottom">
-                        <div class="post-meta"><span class="date">Culture</span> <span class="mx-1">•</span> <span>Jul 5th '22</span>
-                        </div>
-                        <h2 class="mb-2"><a href="blog-details.html">17 Pictures of Medium Length Hair in Layers That
-                            Will Inspire Your New Haircut</a></h2>
-                        <span class="author mb-3 d-block">Jenny Wilson</span>
-                    </div>
-
-                    <div class="post-list border-bottom">
-                        <div class="post-meta"><span class="date">Culture</span> <span class="mx-1">•</span> <span>Jul 5th '22</span>
-                        </div>
-                        <h2 class="mb-2"><a href="blog-details.html">9 Half-up/half-down Hairstyles for Long and Medium
-                            Hair</a></h2>
-                        <span class="author mb-3 d-block">Jenny Wilson</span>
-                    </div>
-
-                    <div class="post-list border-bottom">
-                        <div class="post-meta"><span class="date">Culture</span> <span class="mx-1">•</span> <span>Jul 5th '22</span>
-                        </div>
-                        <h2 class="mb-2"><a href="blog-details.html">Life Insurance And Pregnancy: A Working Mom’s
-                            Guide</a></h2>
-                        <span class="author mb-3 d-block">Jenny Wilson</span>
-                    </div>
-
-                    <div class="post-list border-bottom">
-                        <div class="post-meta"><span class="date">Culture</span> <span class="mx-1">•</span> <span>Jul 5th '22</span>
-                        </div>
-                        <h2 class="mb-2"><a href="blog-details.html">The Best Homemade Masks for Face (keep the Pimples
-                            Away)</a></h2>
-                        <span class="author mb-3 d-block">Jenny Wilson</span>
-                    </div>
-
-                    <div class="post-list border-bottom">
-                        <div class="post-meta"><span class="date">Culture</span> <span class="mx-1">•</span> <span>Jul 5th '22</span>
-                        </div>
-                        <h2 class="mb-2"><a href="blog-details.html">10 Life-Changing Hacks Every Working Mom Should
-                            Know</a></h2>
-                        <span class="author mb-3 d-block">Jenny Wilson</span>
-                    </div>
+                    {% endfor %}
                 </div>
             </div>
         </div>
@@ -352,42 +317,39 @@
 
             <div class="row">
                 <div class="col-md-9 order-md-2">
-
+                    {% for main in Business_main %}
                     <div class="d-lg-flex post-entry">
-                        <a href="blog-details.html" class="me-4 thumbnail d-inline-block mb-4 mb-lg-0">
-                            <img src="{% static 'assets/img/post-landscape-3.jpg' %}" alt="" class="img-fluid">
+                        <a href="/busines_main/{{ main.id }}" class="me-4 thumbnail d-inline-block mb-4 mb-lg-0">
+                            <img src="/media/{{ main.photo }}" alt="" class="img-fluid">
                         </a>
                         <div>
-                            <div class="post-meta"><span class="date">Business</span> <span class="mx-1">•</span> <span>Jul 5th '22</span>
+                            <div class="post-meta"><span class="date">{{ main.type }}</span> <span class="mx-1">•</span> <span>{{ main.date }}</span>
                             </div>
-                            <h3><a href="blog-details.html">What is the son of Football Coach John Gruden, Deuce Gruden
-                                doing Now?</a></h3>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio placeat
-                                exercitationem magni voluptates dolore. Tenetur fugiat voluptates quas, nobis error
-                                deserunt aliquam temporibus sapiente, laudantium dolorum itaque libero eos deleniti?</p>
+                            <h3><a href="/busines_main/{{ main.id }}">{{ main.title }}</a></h3>
+                            <p>{{ main.brief_description }}</p>
                             <div class="d-flex align-items-center author">
-                                <div class="photo"><img src="{% static 'assets/img/person-4.jpg' %}" alt=""
+                                <div class="photo"><img src="/media/{{ main.writter_photo }}" alt=""
                                                         class="img-fluid"></div>
                                 <div class="name">
-                                    <h3 class="m-0 p-0">Wade Warren</h3>
+                                    <h3 class="m-0 p-0">{{ main.writer_name }}</h3>
                                 </div>
                             </div>
                         </div>
                     </div>
-
+                    {% endfor %}
                     <div class="row">
                         <div class="col-lg-4">
+                            {% for p in bus_post_1 %}
                             <div class="post-list border-bottom">
-                                <a href="blog-details.html"><img src="{% static 'assets/img/post-landscape-5.jpg' %}"
+                                <a href="/business_col21/{{ p.id }}"><img src="/media/{{ p.photo }}"
                                                                  alt="" class="img-fluid"></a>
-                                <div class="post-meta"><span class="date">Business</span> <span class="mx-1">•</span>
-                                    <span>Jul 5th '22</span></div>
-                                <h2 class="mb-2"><a href="blog-details.html">11 Work From Home Part-Time Jobs You Can Do
-                                    Now</a></h2>
-                                <span class="author mb-3 d-block">Jenny Wilson</span>
-                                <p class="mb-4 d-block">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vero
-                                    temporibus repudiandae, inventore pariatur numquam cumque possimus</p>
+                                <div class="post-meta"><span class="date">{{ p.type }}</span> <span class="mx-1">•</span>
+                                    <span>{{ p.date }}</span></div>
+                                <h2 class="mb-2"><a href="/business_col21/{{ p.id }}">{{ p.title }}</a></h2>
+                                <span class="author mb-3 d-block">{{ p.writer_name }}</span>
+                                <p class="mb-4 d-block">{{ p.brief_description }}</p>
                             </div>
+                            {% endfor %}
 
                             <div class="post-list">
                                 <div class="post-meta"><span class="date">Business</span> <span class="mx-1">•</span>
@@ -397,69 +359,31 @@
                                 <span class="author mb-3 d-block">Jenny Wilson</span>
                             </div>
                         </div>
+                        {% for subb in bus_sub_trending %}
                         <div class="col-lg-8">
                             <div class="post-list">
-                                <a href="blog-details.html"><img src="{% static 'assets/img/post-landscape-7.jpg' %}"
+                                <a href="/bus_sub_trend/{{ subb.id }}"><img src="/media/{{ subb.photo }}"
                                                                  alt="" class="img-fluid"></a>
-                                <div class="post-meta"><span class="date">Business</span> <span class="mx-1">•</span>
-                                    <span>Jul 5th '22</span></div>
-                                <h2 class="mb-2"><a href="blog-details.html">How to Avoid Distraction and Stay Focused
-                                    During Video Calls?</a></h2>
-                                <span class="author mb-3 d-block">Jenny Wilson</span>
-                                <p class="mb-4 d-block">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vero
-                                    temporibus repudiandae, inventore pariatur numquam cumque possimus</p>
+                                <div class="post-meta"><span class="date">{{ subb.type }}</span> <span class="mx-1">•</span>
+                                    <span>{{ subb.date }}</span></div>
+                                <h2 class="mb-2"><a href="/bus_sub_trend/{{ subb.id }}">{{ subb.title }}</a></h2>
+                                <span class="author mb-3 d-block">{{ subb.writer_name }}</span>
+                                <p class="mb-4 d-block">{{ subb.brief_description }}</p>
                             </div>
                         </div>
+                        {% endfor %}
                     </div>
                 </div>
                 <div class="col-md-3">
+                    {% for bus in busi_col1 %}
                     <div class="post-list border-bottom">
-                        <div class="post-meta"><span class="date">Business</span> <span class="mx-1">•</span> <span>Jul 5th '22</span>
+                        <div class="post-meta"><span class="date">{{ bus.type }}</span> <span class="mx-1">•</span> <span>{{ bus.date }}</span>
                         </div>
-                        <h2 class="mb-2"><a href="blog-details.html">How to Avoid Distraction and Stay Focused During
-                            Video Calls?</a></h2>
-                        <span class="author mb-3 d-block">Jenny Wilson</span>
+                        <h2 class="mb-2"><a href="/bus_col1/{{ bus.id }}">{{ bus.title }}</a></h2>
+                        <span class="author mb-3 d-block">{{ bus.writer_name }}</span>
                     </div>
+                    {% endfor %}
 
-                    <div class="post-list border-bottom">
-                        <div class="post-meta"><span class="date">Business</span> <span class="mx-1">•</span> <span>Jul 5th '22</span>
-                        </div>
-                        <h2 class="mb-2"><a href="blog-details.html">17 Pictures of Medium Length Hair in Layers That
-                            Will Inspire Your New Haircut</a></h2>
-                        <span class="author mb-3 d-block">Jenny Wilson</span>
-                    </div>
-
-                    <div class="post-list border-bottom">
-                        <div class="post-meta"><span class="date">Business</span> <span class="mx-1">•</span> <span>Jul 5th '22</span>
-                        </div>
-                        <h2 class="mb-2"><a href="blog-details.html">9 Half-up/half-down Hairstyles for Long and Medium
-                            Hair</a></h2>
-                        <span class="author mb-3 d-block">Jenny Wilson</span>
-                    </div>
-
-                    <div class="post-list border-bottom">
-                        <div class="post-meta"><span class="date">Business</span> <span class="mx-1">•</span> <span>Jul 5th '22</span>
-                        </div>
-                        <h2 class="mb-2"><a href="blog-details.html">Life Insurance And Pregnancy: A Working Mom’s
-                            Guide</a></h2>
-                        <span class="author mb-3 d-block">Jenny Wilson</span>
-                    </div>
-
-                    <div class="post-list border-bottom">
-                        <div class="post-meta"><span class="date">Business</span> <span class="mx-1">•</span> <span>Jul 5th '22</span>
-                        </div>
-                        <h2 class="mb-2"><a href="blog-details.html">The Best Homemade Masks for Face (keep the Pimples
-                            Away)</a></h2>
-                        <span class="author mb-3 d-block">Jenny Wilson</span>
-                    </div>
-
-                    <div class="post-list border-bottom">
-                        <div class="post-meta"><span class="date">Business</span> <span class="mx-1">•</span> <span>Jul 5th '22</span>
-                        </div>
-                        <h2 class="mb-2"><a href="blog-details.html">10 Life-Changing Hacks Every Working Mom Should
-                            Know</a></h2>
-                        <span class="author mb-3 d-block">Jenny Wilson</span>
-                    </div>
                 </div>
             </div>
 

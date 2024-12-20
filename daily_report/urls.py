@@ -23,4 +23,14 @@ urlpatterns = [
     path('cul_col1/<id>', views.cul_col1, name='cul_col1'),
     path('comm_cul_col1', views.comm_cul_col1, name='comm_cul_col1'),
     path('cul_col22/<id>', views.cul_col22, name='cul_col22'),
+    path('cul_col3/<id>', views.cul_col3, name='cul_col3'),
+    path('comm_cul_col3', views.comm_cul_col3, name='comm_cul_col3'),
+
+    # Business Section
+    path('bus_col1/<id>', views.bus_col1, name='bus_col1'),
+    path('comm_bus_col1', views.comm_bus_col1, name='comm_bus_col1'),
+    path('busines_main/<id>', views.busines_main, name='busines_main'),
+    path('bus_sub_trend/<id>', views.bus_sub_trend, name='bus_sub_trend'),
+    path('business_col21/<id>', views.business_col21, name='business_col21'),
+    path('comm_bus_col21', views.comm_bus_col21, name='comm_bus_col21'),
 ]

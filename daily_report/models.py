@@ -220,3 +220,97 @@ class culture_col3(models.Model):
 
     def __str__(self):
         return self.title
+
+#   culture col 3 comment
+class comment_cul_col3(models.Model):
+    comm = models.TextField(null=False, blank=False)
+    full_name = models.CharField(max_length=50, null=False, blank=False)
+    email = models.EmailField()
+    phone = models.CharField(max_length=13, null=False, blank=False)
+    image = models.ImageField(upload_to='uploads/comments', default='uploads/comments/default.jpg')
+
+    def __str__(self):
+        return self.full_name
+
+# end culture section
+
+# Business section start
+class business_col1(models.Model):
+    type = models.CharField(max_length=30, null=False, blank=False, default='Business')
+    date = models.DateField(default=now, null=False, blank=False)
+    title = models.CharField(max_length=300, null=False, blank=False)
+    writer_name = models.CharField(max_length=30, null=False, blank=False)
+    photo = models.ImageField(upload_to='uploads/business', default='uploads/business/business.jpg')
+    description = models.TextField(default="")
+
+    def __str__(self):
+        return self.title
+
+# comment business col 1
+class comment_bus_col1(models.Model):
+    comm = models.TextField(null=False, blank=False)
+    full_name = models.CharField(max_length=50, null=False, blank=False)
+    email = models.EmailField()
+    phone = models.CharField(max_length=13, null=False, blank=False)
+    image = models.ImageField(upload_to='uploads/comments', default='uploads/comments/default.jpg')
+
+    def __str__(self):
+        return self.full_name
+
+class business_main(models.Model):
+    photo = models.ImageField(upload_to='uploads/business', default='uploads/business/business.jpg')
+    type = models.CharField(max_length=30, null=False, blank=False, default='Business')
+    date = models.DateField(default=now, null=False, blank=False)
+    title = models.CharField(max_length=300, null=False, blank=False)
+    brief_description = models.TextField(default="")
+    description = models.TextField(default="")
+    writer_name = models.CharField(max_length=30, null=False, blank=False)
+    writter_photo = models.ImageField(upload_to='uploads/writters', default='uploads/writters/writter.jpg', blank=False,
+                                      null=False)
+
+    def __str__(self):
+        return self.title
+
+class business_main_support(models.Model):
+    supporting_photo = models.ImageField(upload_to='uploads/business', default='uploads/business/business.jpg')
+    supporting_photo_title = models.CharField(max_length=300, null=False, blank=False, default='')
+    supporting_photo_description = models.CharField(max_length=300, null=False, blank=False, default="")
+
+    def __str__(self):
+        return self.supporting_photo_title
+
+class business_sub_trending(models.Model):
+    photo = models.ImageField(upload_to='uploads/business', default='uploads/business/business.jpg')
+    type = models.CharField(max_length=30, null=False, blank=False, default='business')
+    date = models.DateField(default=now, null=False, blank=False)
+    title = models.CharField(max_length=300, null=False, blank=False)
+    brief_description = models.TextField(default="")
+    description = models.TextField(default="")
+    writer_name = models.CharField(max_length=30, null=False, blank=False, default='')
+
+
+    def __str__(self):
+        return self.title
+
+class business_post_1(models.Model):
+    photo = models.ImageField(upload_to='uploads/business', default='uploads/business/business.jpg')
+    type = models.CharField(max_length=30, null=False, blank=False, default='business')
+    date = models.DateField(default=now, null=False, blank=False)
+    title = models.CharField(max_length=300, null=False, blank=False)
+    brief_description = models.TextField(default="")
+    description = models.TextField(default="")
+    writer_name = models.CharField(max_length=30, null=False, blank=False, default='')
+
+
+    def __str__(self):
+        return self.title
+
+class comment_bus_col21(models.Model):
+    comm = models.TextField(null=False, blank=False)
+    full_name = models.CharField(max_length=50, null=False, blank=False)
+    email = models.EmailField()
+    phone = models.CharField(max_length=13, null=False, blank=False)
+    image = models.ImageField(upload_to='uploads/comments', default='uploads/comments/default.jpg')
+
+    def __str__(self):
+        return self.full_name

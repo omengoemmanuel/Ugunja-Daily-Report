@@ -122,7 +122,8 @@
                                         {{ com.comment }}
                                     </div>
                                 </div>
-
+                                  {% empty %}
+                                <p>No comment</p>
                             {% endfor %}
                         </div>
                     </div>
