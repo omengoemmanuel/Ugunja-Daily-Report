@@ -33,4 +33,14 @@ urlpatterns = [
     path('bus_sub_trend/<id>', views.bus_sub_trend, name='bus_sub_trend'),
     path('business_col21/<id>', views.business_col21, name='business_col21'),
     path('comm_bus_col21', views.comm_bus_col21, name='comm_bus_col21'),
+
+
+    # lifestyle
+    path('main_lifestyle/<id>', views.main_lifestyle, name='main_lifestyle'),
+    path('life_col1/<id>', views.life_col1, name='life_col1'),
+    path('comment_col1', views.comment_col1, name='comment_col1'),
+
+
+    # New messages
+    path('new_message', views.new_message, name='new_message'),
 ]

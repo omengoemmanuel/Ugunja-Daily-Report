@@ -314,3 +314,76 @@ class comment_bus_col21(models.Model):
 
     def __str__(self):
         return self.full_name
+
+
+# Lifestyle
+# Main
+class lifestyle_main(models.Model):
+    photo = models.ImageField(upload_to='uploads/lifestyle', default='uploads/lifestyle/lifestyle.jpg')
+    type = models.CharField(max_length=30, null=False, blank=False, default='lifestyle')
+    date = models.DateField(default=now, null=False, blank=False)
+    title = models.CharField(max_length=300, null=False, blank=False)
+    brief_description = models.TextField(default="")
+    description = models.TextField(default="")
+    writer_name = models.CharField(max_length=30, null=False, blank=False)
+    writter_photo = models.ImageField(upload_to='uploads/writters', default='uploads/writters/writter.jpg', blank=False,
+                                      null=False)
+
+    def __str__(self):
+        return self.title
+
+
+# photos to support main lifestyle
+class lifestyle_main_support(models.Model):
+    supporting_photo = models.ImageField(upload_to='uploads/lifestyle', default='uploads/lifestyle/lifestyle.jpg')
+    supporting_photo_title = models.CharField(max_length=300, null=False, blank=False, default='')
+    supporting_photo_description = models.CharField(max_length=300, null=False, blank=False, default="")
+
+    def __str__(self):
+        return self.supporting_photo_title
+
+
+class lifestyle_col1(models.Model):
+    type = models.CharField(max_length=30, null=False, blank=False, default='Lifestyle')
+    date = models.DateField(default=now, null=False, blank=False)
+    title = models.CharField(max_length=300, null=False, blank=False)
+    writer_name = models.CharField(max_length=30, null=False, blank=False)
+    photo = models.ImageField(upload_to='uploads/lifestyle', default='uploads/lifestyle/lifestyle.jpg')
+    description = models.TextField(default="")
+
+    def __str__(self):
+        return self.title
+
+class comment_lifestyle_col1(models.Model):
+    comm = models.TextField(null=False, blank=False)
+    full_name = models.CharField(max_length=50, null=False, blank=False)
+    email = models.EmailField()
+    phone = models.CharField(max_length=13, null=False, blank=False)
+    image = models.ImageField(upload_to='uploads/comments', default='uploads/comments/default.jpg')
+
+    def __str__(self):
+        return self.full_name
+
+# Lifestyle col 2
+class lifestyle_col_2(models.Model):
+    trending_photo = models.ImageField(upload_to="uploads/lifestyle_col2",
+                                       default='uploads/lifestyle_cole2/lifestyle.jpg')
+    trending_type = models.CharField(max_length=30, null=False, blank=False,default='Lifestyle')
+    date = models.DateField()
+    title = models.CharField(max_length=300, null=False, blank=False)
+    description = models.TextField(default="")
+
+    def __str__(self):
+        return self.title
+
+
+
+# new_message model
+class new_messages(models.Model):
+    name = models.CharField(max_length=50, null=False, blank=False)
+    email = models.EmailField()
+    subject = models.CharField(max_length=300, null=False, blank=False)
+    message = models.TextField(default="")
+
+    def __str__(self):
+        return self.name

@@ -2,7 +2,8 @@ from django.shortcuts import render, redirect
 from .models import sliders, main_trending_headline, comment, sub_trending_col_1, sub_trending_col_2, \
     sub_trending_col_3, comment_col1, comment_col2, comment_col3, culture_main, culture_main_support, culture_col11, \
     culture_col12, comment_cul_col1, culture_col2, culture_col3, comment_cul_col3, business_col1, comment_bus_col1, \
-    business_main, business_main_support, business_sub_trending, business_post_1, comment_bus_col21
+    business_main, business_main_support, business_sub_trending, business_post_1, comment_bus_col21, new_messages, \
+    lifestyle_main, lifestyle_main_support, lifestyle_col1, comment_lifestyle_col1
 from django.contrib import messages
 
 
@@ -22,11 +23,14 @@ def index(request):
     Business_main = business_main.objects.all()
     bus_sub_trending = business_sub_trending.objects.all()
     bus_post_1 = business_post_1.objects.all()
+    lifestyle_mainn = lifestyle_main.objects.all()
+    life_col1 = lifestyle_col1.objects.all()
     return render(request, 'index.html',
                   {'slide': slide, 'trend': trend, 'sub_trend_1': sub_trend_1, 'sub_trend_2': sub_trend_2,
                    'sub_trend_3': sub_trend_3, 'Culture_main': Culture_main, 'culture_col1': culture_col1,
                    'culturecol2': culturecol2, 'cul_col_2': cul_col_2, 'cul_col_3': cul_col_3,
-                   'busi_col1': busi_col1, 'Business_main': Business_main, 'bus_sub_trending': bus_sub_trending, 'bus_post_1': bus_post_1})
+                   'busi_col1': busi_col1, 'Business_main': Business_main, 'bus_sub_trending': bus_sub_trending,
+                   'bus_post_1': bus_post_1, 'lifestyle_mainn': lifestyle_mainn, 'life_col1': life_col1, })
 
 
 def about(request):
@@ -216,10 +220,12 @@ def bus_sub_trend(request, id):
     sub_trends = business_sub_trending.objects.get(id=id)
     return render(request, 'business/sub_trending.html', {'sub_trends': sub_trends})
 
+
 def business_col21(request, id):
     bus_col21 = business_post_1.objects.get(id=id)
     com_bus = comment_bus_col21.objects.all()
     return render(request, 'business/business_col21.html', {'bus_col21': bus_col21, 'com_bus': com_bus})
+
 
 def comm_bus_col21(request):
     if request.method == 'POST':
@@ -233,3 +239,50 @@ def comm_bus_col21(request):
         messages.success(request, "Comment uploaded successfully")
 
         return redirect('index')
+
+
+def business_col22(request):
+    pass
+
+
+# Lifestyle
+# main lifestyle
+def main_lifestyle(request, id):
+    main_life = lifestyle_main.objects.get(id=id)
+    life_sup = lifestyle_main_support.objects.all()
+    return render(request, 'lifestyle/main.html', {'main_life': main_life, 'life_sup': life_sup})
+
+
+def life_col1(request, id):
+    life_coll1 = lifestyle_col1.objects.get(id=id)
+    comm_life = comment_lifestyle_col1.objects.all()
+    return render(request, 'lifestyle/life_col1.html', {'life_coll1': life_coll1, 'comm_life': comm_life})
+
+
+def comment_col1(request):
+    if request.method == 'POST':
+        comm = request.POST.get('comment')
+        full_name = request.POST.get('full_name')
+        email = request.POST.get('email')
+        phone = request.POST.get('phone')
+
+        comment6 = comment_lifestyle_col1(comm=comm, full_name=full_name, email=email, phone=phone)
+        comment6.save()
+        messages.success(request, "Comment uploaded successfully")
+
+        return redirect('index')
+
+
+# new message function
+def new_message(request):
+    if request.method == 'POST':
+        name = request.POST.get('name')
+        email = request.POST.get('email')
+        subject = request.POST.get('subject')
+        message = request.POST.get('message')
+
+        message_new = new_messages(name=name, email=email, subject=subject, message=message)
+        message_new.save()
+
+        return redirect('contact')
+    return redirect('contact')
