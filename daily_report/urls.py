@@ -39,6 +39,9 @@ urlpatterns = [
     path('main_lifestyle/<id>', views.main_lifestyle, name='main_lifestyle'),
     path('life_col1/<id>', views.life_col1, name='life_col1'),
     path('comment_col1', views.comment_col1, name='comment_col1'),
+    path('life_col2/<id>', views.life_col2, name='life_col2'),
+    path('comment_life_col2', views.comment_life_col2, name='comment_life_col2'),
+
 
 
     # New messages

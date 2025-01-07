@@ -377,6 +377,15 @@ class lifestyle_col_2(models.Model):
         return self.title
 
 
+class comment_lifestyle_col2(models.Model):
+    comm = models.TextField(null=False, blank=False)
+    full_name = models.CharField(max_length=50, null=False, blank=False)
+    email = models.EmailField()
+    phone = models.CharField(max_length=13, null=False, blank=False)
+    image = models.ImageField(upload_to='uploads/comments', default='uploads/comments/default.jpg')
+
+    def __str__(self):
+        return self.full_name
 
 # new_message model
 class new_messages(models.Model):

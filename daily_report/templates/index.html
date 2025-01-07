@@ -318,37 +318,39 @@
             <div class="row">
                 <div class="col-md-9 order-md-2">
                     {% for main in Business_main %}
-                    <div class="d-lg-flex post-entry">
-                        <a href="/busines_main/{{ main.id }}" class="me-4 thumbnail d-inline-block mb-4 mb-lg-0">
-                            <img src="/media/{{ main.photo }}" alt="" class="img-fluid">
-                        </a>
-                        <div>
-                            <div class="post-meta"><span class="date">{{ main.type }}</span> <span class="mx-1">•</span> <span>{{ main.date }}</span>
-                            </div>
-                            <h3><a href="/busines_main/{{ main.id }}">{{ main.title }}</a></h3>
-                            <p>{{ main.brief_description }}</p>
-                            <div class="d-flex align-items-center author">
-                                <div class="photo"><img src="/media/{{ main.writter_photo }}" alt=""
-                                                        class="img-fluid"></div>
-                                <div class="name">
-                                    <h3 class="m-0 p-0">{{ main.writer_name }}</h3>
+                        <div class="d-lg-flex post-entry">
+                            <a href="/busines_main/{{ main.id }}" class="me-4 thumbnail d-inline-block mb-4 mb-lg-0">
+                                <img src="/media/{{ main.photo }}" alt="" class="img-fluid">
+                            </a>
+                            <div>
+                                <div class="post-meta"><span class="date">{{ main.type }}</span> <span
+                                        class="mx-1">•</span> <span>{{ main.date }}</span>
+                                </div>
+                                <h3><a href="/busines_main/{{ main.id }}">{{ main.title }}</a></h3>
+                                <p>{{ main.brief_description }}</p>
+                                <div class="d-flex align-items-center author">
+                                    <div class="photo"><img src="/media/{{ main.writter_photo }}" alt=""
+                                                            class="img-fluid"></div>
+                                    <div class="name">
+                                        <h3 class="m-0 p-0">{{ main.writer_name }}</h3>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
                     {% endfor %}
                     <div class="row">
                         <div class="col-lg-4">
                             {% for p in bus_post_1 %}
-                            <div class="post-list border-bottom">
-                                <a href="/business_col21/{{ p.id }}"><img src="/media/{{ p.photo }}"
-                                                                 alt="" class="img-fluid"></a>
-                                <div class="post-meta"><span class="date">{{ p.type }}</span> <span class="mx-1">•</span>
-                                    <span>{{ p.date }}</span></div>
-                                <h2 class="mb-2"><a href="/business_col21/{{ p.id }}">{{ p.title }}</a></h2>
-                                <span class="author mb-3 d-block">{{ p.writer_name }}</span>
-                                <p class="mb-4 d-block">{{ p.brief_description }}</p>
-                            </div>
+                                <div class="post-list border-bottom">
+                                    <a href="/business_col21/{{ p.id }}"><img src="/media/{{ p.photo }}"
+                                                                              alt="" class="img-fluid"></a>
+                                    <div class="post-meta"><span class="date">{{ p.type }}</span> <span
+                                            class="mx-1">•</span>
+                                        <span>{{ p.date }}</span></div>
+                                    <h2 class="mb-2"><a href="/business_col21/{{ p.id }}">{{ p.title }}</a></h2>
+                                    <span class="author mb-3 d-block">{{ p.writer_name }}</span>
+                                    <p class="mb-4 d-block">{{ p.brief_description }}</p>
+                                </div>
                             {% endfor %}
 
                             <div class="post-list">
@@ -360,28 +362,29 @@
                             </div>
                         </div>
                         {% for subb in bus_sub_trending %}
-                        <div class="col-lg-8">
-                            <div class="post-list">
-                                <a href="/bus_sub_trend/{{ subb.id }}"><img src="/media/{{ subb.photo }}"
-                                                                 alt="" class="img-fluid"></a>
-                                <div class="post-meta"><span class="date">{{ subb.type }}</span> <span class="mx-1">•</span>
-                                    <span>{{ subb.date }}</span></div>
-                                <h2 class="mb-2"><a href="/bus_sub_trend/{{ subb.id }}">{{ subb.title }}</a></h2>
-                                <span class="author mb-3 d-block">{{ subb.writer_name }}</span>
-                                <p class="mb-4 d-block">{{ subb.brief_description }}</p>
+                            <div class="col-lg-8">
+                                <div class="post-list">
+                                    <a href="/bus_sub_trend/{{ subb.id }}"><img src="/media/{{ subb.photo }}"
+                                                                                alt="" class="img-fluid"></a>
+                                    <div class="post-meta"><span class="date">{{ subb.type }}</span> <span class="mx-1">•</span>
+                                        <span>{{ subb.date }}</span></div>
+                                    <h2 class="mb-2"><a href="/bus_sub_trend/{{ subb.id }}">{{ subb.title }}</a></h2>
+                                    <span class="author mb-3 d-block">{{ subb.writer_name }}</span>
+                                    <p class="mb-4 d-block">{{ subb.brief_description }}</p>
+                                </div>
                             </div>
-                        </div>
                         {% endfor %}
                     </div>
                 </div>
                 <div class="col-md-3">
                     {% for bus in busi_col1 %}
-                    <div class="post-list border-bottom">
-                        <div class="post-meta"><span class="date">{{ bus.type }}</span> <span class="mx-1">•</span> <span>{{ bus.date }}</span>
+                        <div class="post-list border-bottom">
+                            <div class="post-meta"><span class="date">{{ bus.type }}</span> <span class="mx-1">•</span>
+                                <span>{{ bus.date }}</span>
+                            </div>
+                            <h2 class="mb-2"><a href="/bus_col1/{{ bus.id }}">{{ bus.title }}</a></h2>
+                            <span class="author mb-3 d-block">{{ bus.writer_name }}</span>
                         </div>
-                        <h2 class="mb-2"><a href="/bus_col1/{{ bus.id }}">{{ bus.title }}</a></h2>
-                        <span class="author mb-3 d-block">{{ bus.writer_name }}</span>
-                    </div>
                     {% endfor %}
 
                 </div>
@@ -407,61 +410,49 @@
             <div class="row g-5">
                 <div class="col-lg-4">
                     {% for life in lifestyle_mainn %}
-                    <div class="post-list lg">
-                        <a href="/main_lifestyle/{{ life.id }}"><img src="/media/{{ life.photo }}" alt=""
-                                                         class="img-fluid"></a>
-                        <div class="post-meta"><span class="date">{{ life.type }}</span> <span class="mx-1">•</span> <span>{{ life.date }}</span>
-                        </div>
-                        <h2><a href="/main_lifestyle/{{ life.id }}">{{ life.title }}</a></h2>
-                        <p class="mb-4 d-block">{{ life.brief_description }}</p>
+                        <div class="post-list lg">
+                            <a href="/main_lifestyle/{{ life.id }}"><img src="/media/{{ life.photo }}" alt=""
+                                                                         class="img-fluid"></a>
+                            <div class="post-meta"><span class="date">{{ life.type }}</span> <span class="mx-1">•</span>
+                                <span>{{ life.date }}</span>
+                            </div>
+                            <h2><a href="/main_lifestyle/{{ life.id }}">{{ life.title }}</a></h2>
+                            <p class="mb-4 d-block">{{ life.brief_description }}</p>
 
-                        <div class="d-flex align-items-center author">
-                            <div class="photo"><img src="/media/{{ life.writter_photo }}" alt=""
-                                                    class="img-fluid"></div>
-                            <div class="name">
-                                <h3 class="m-0 p-0">{{ life.writer_name }}</h3>
+                            <div class="d-flex align-items-center author">
+                                <div class="photo"><img src="/media/{{ life.writter_photo }}" alt=""
+                                                        class="img-fluid"></div>
+                                <div class="name">
+                                    <h3 class="m-0 p-0">{{ life.writer_name }}</h3>
+                                </div>
                             </div>
                         </div>
-                    </div>
                     {% endfor %}
 
                     {% for col in life_col1 %}
-                    <div class="post-list border-bottom">
-                        <div class="post-meta"><span class="date">{{ col.type }}</span> <span class="mx-1">•</span> <span>{{ col.date }}</span>
+                        <div class="post-list border-bottom">
+                            <div class="post-meta"><span class="date">{{ col.type }}</span> <span class="mx-1">•</span>
+                                <span>{{ col.date }}</span>
+                            </div>
+                            <h2 class="mb-2"><a href="/life_col1/{{ col.id }}">{{ col.title }}</a></h2>
+                            <span class="author mb-3 d-block">{{ col.writer_name }}</span>
                         </div>
-                        <h2 class="mb-2"><a href="/life_col1/{{ col.id }}">{{ col.title }}</a></h2>
-                        <span class="author mb-3 d-block">{{ col.writer_name }}</span>
-                    </div>
-                {% endfor %}
+                    {% endfor %}
 
                 </div>
 
                 <div class="col-lg-8">
                     <div class="row g-5">
                         <div class="col-lg-4 border-start custom-border">
+                            {% for li in life_col2 %}
                             <div class="post-list">
-                                <a href="blog-details.html"><img src="{% static 'assets/img/post-landscape-6.jpg' %}"
+                                <a href="/life_col2/{{ li.id }}"><img src="/media/{{ li.trending_photo }}"
                                                                  alt="" class="img-fluid"></a>
-                                <div class="post-meta"><span class="date">Lifestyle</span> <span class="mx-1">•</span>
-                                    <span>Jul 5th '22</span></div>
-                                <h2><a href="blog-details.html">Let’s Get Back to Work, New York</a></h2>
+                                <div class="post-meta"><span class="date">{{ li.trending_type }}</span> <span class="mx-1">•</span>
+                                    <span>{{ li.date }}</span></div>
+                                <h2><a href="/life_col2/{{ li.id }}">{{ li.title }}</a></h2>
                             </div>
-                            <div class="post-list">
-                                <a href="blog-details.html"><img src="{% static 'assets/img/post-landscape-5.jpg' %}"
-                                                                 alt="" class="img-fluid"></a>
-                                <div class="post-meta"><span class="date">Lifestyle</span> <span class="mx-1">•</span>
-                                    <span>Jul 17th '22</span></div>
-                                <h2><a href="blog-details.html">How to Avoid Distraction and Stay Focused During Video
-                                    Calls?</a></h2>
-                            </div>
-                            <div class="post-list">
-                                <a href="blog-details.html"><img src="{% static 'assets/img/post-landscape-4.jpg' %}"
-                                                                 alt="" class="img-fluid"></a>
-                                <div class="post-meta"><span class="date">Lifestyle</span> <span class="mx-1">•</span>
-                                    <span>Mar 15th '22</span></div>
-                                <h2><a href="blog-details.html">Why Craigslist Tampa Is One of The Most Interesting
-                                    Places On the Web?</a></h2>
-                            </div>
+                            {% endfor %}
                         </div>
                         <div class="col-lg-4 border-start custom-border">
                             <div class="post-list">
