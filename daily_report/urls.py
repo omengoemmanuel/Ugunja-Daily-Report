@@ -41,6 +41,8 @@ urlpatterns = [
     path('comment_col1', views.comment_col1, name='comment_col1'),
     path('life_col2/<id>', views.life_col2, name='life_col2'),
     path('comment_life_col2', views.comment_life_col2, name='comment_life_col2'),
+    path('life_col3/<id>', views.life_col3, name='life_col3'),
+    path('comment_life_col33', views.comment_life_col33, name='comment_life_col3'),
 
 
 

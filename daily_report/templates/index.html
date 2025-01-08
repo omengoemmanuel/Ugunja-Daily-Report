@@ -445,39 +445,26 @@
                     <div class="row g-5">
                         <div class="col-lg-4 border-start custom-border">
                             {% for li in life_col2 %}
-                            <div class="post-list">
-                                <a href="/life_col2/{{ li.id }}"><img src="/media/{{ li.trending_photo }}"
-                                                                 alt="" class="img-fluid"></a>
-                                <div class="post-meta"><span class="date">{{ li.trending_type }}</span> <span class="mx-1">•</span>
-                                    <span>{{ li.date }}</span></div>
-                                <h2><a href="/life_col2/{{ li.id }}">{{ li.title }}</a></h2>
-                            </div>
+                                <div class="post-list">
+                                    <a href="/life_col2/{{ li.id }}"><img src="/media/{{ li.trending_photo }}"
+                                                                          alt="" class="img-fluid"></a>
+                                    <div class="post-meta"><span class="date">{{ li.trending_type }}</span> <span
+                                            class="mx-1">•</span>
+                                        <span>{{ li.date }}</span></div>
+                                    <h2><a href="/life_col2/{{ li.id }}">{{ li.title }}</a></h2>
+                                </div>
                             {% endfor %}
                         </div>
                         <div class="col-lg-4 border-start custom-border">
+                            {% for life in life_col3 %}
                             <div class="post-list">
-                                <a href="blog-details.html"><img src="{% static 'assets/img/post-landscape-3.jpg' %}"
+                                <a href="/life_col3/{{ life.id }}"><img src="/media/{{ life.trending_photo }}"
                                                                  alt="" class="img-fluid"></a>
-                                <div class="post-meta"><span class="date">Lifestyle</span> <span class="mx-1">•</span>
-                                    <span>Jul 5th '22</span></div>
-                                <h2><a href="blog-details.html">6 Easy Steps To Create Your Own Cute Merch For
-                                    Instagram</a></h2>
+                                <div class="post-meta"><span class="date">{{ life.trending_type }}</span> <span class="mx-1">•</span>
+                                    <span>{{ life.date }}</span></div>
+                                <h2><a href="/life_col3/{{ life.id }}">{{ life.title }}</a></h2>
                             </div>
-                            <div class="post-list">
-                                <a href="blog-details.html"><img src="{% static 'assets/img/post-landscape-2.jpg' %}"
-                                                                 alt="" class="img-fluid"></a>
-                                <div class="post-meta"><span class="date">Lifestyle</span> <span class="mx-1">•</span>
-                                    <span>Mar 1st '22</span></div>
-                                <h2><a href="blog-details.html">10 Life-Changing Hacks Every Working Mom Should Know</a>
-                                </h2>
-                            </div>
-                            <div class="post-list">
-                                <a href="blog-details.html"><img src="{% static 'assets/img/post-landscape-1.jpg' %}"
-                                                                 alt="" class="img-fluid"></a>
-                                <div class="post-meta"><span class="date">Lifestyle</span> <span class="mx-1">•</span>
-                                    <span>Jul 5th '22</span></div>
-                                <h2><a href="blog-details.html">5 Great Startup Tips for Female Founders</a></h2>
-                            </div>
+                            {% endfor %}
                         </div>
                         <div class="col-lg-4">
 

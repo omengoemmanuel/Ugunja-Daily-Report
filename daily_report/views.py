@@ -3,7 +3,9 @@ from .models import sliders, main_trending_headline, comment, sub_trending_col_1
     sub_trending_col_3, comment_col1, comment_col2, comment_col3, culture_main, culture_main_support, culture_col11, \
     culture_col12, comment_cul_col1, culture_col2, culture_col3, comment_cul_col3, business_col1, comment_bus_col1, \
     business_main, business_main_support, business_sub_trending, business_post_1, comment_bus_col21, new_messages, \
-    lifestyle_main, lifestyle_main_support, lifestyle_col1, comment_lifestyle_col1, lifestyle_col_2, comment_lifestyle_col2
+    lifestyle_main, lifestyle_main_support, lifestyle_col1, comment_lifestyle_col1, lifestyle_col_2, \
+    comment_lifestyle_col2, lifestyle_col_3, comment_lifestyle_col3
+
 from django.contrib import messages
 
 
@@ -26,12 +28,14 @@ def index(request):
     lifestyle_mainn = lifestyle_main.objects.all()
     life_col1 = lifestyle_col1.objects.all()
     life_col2 = lifestyle_col_2.objects.all()
+    life_col3 = lifestyle_col_3.objects.all()
     return render(request, 'index.html',
                   {'slide': slide, 'trend': trend, 'sub_trend_1': sub_trend_1, 'sub_trend_2': sub_trend_2,
                    'sub_trend_3': sub_trend_3, 'Culture_main': Culture_main, 'culture_col1': culture_col1,
                    'culturecol2': culturecol2, 'cul_col_2': cul_col_2, 'cul_col_3': cul_col_3,
                    'busi_col1': busi_col1, 'Business_main': Business_main, 'bus_sub_trending': bus_sub_trending,
-                   'bus_post_1': bus_post_1, 'lifestyle_mainn': lifestyle_mainn, 'life_col1': life_col1,'life_col2': life_col2,})
+                   'bus_post_1': bus_post_1, 'lifestyle_mainn': lifestyle_mainn, 'life_col1': life_col1,
+                   'life_col2': life_col2, 'life_col3': life_col3})
 
 
 def about(request):
@@ -273,11 +277,13 @@ def comment_col1(request):
 
         return redirect('index')
 
+
 # lifestyle col 2
 def life_col2(request, id):
     life_coll2 = lifestyle_col_2.objects.get(id=id)
     comm_life_col2 = comment_lifestyle_col2.objects.all()
     return render(request, 'lifestyle/life_col2.html', {'life_coll2': life_coll2, 'comm_life_col2': comm_life_col2})
+
 
 def comment_life_col2(request):
     if request.method == 'POST':
@@ -288,6 +294,25 @@ def comment_life_col2(request):
 
         comment13 = comment_lifestyle_col2(comm=comm, full_name=full_name, email=email, phone=phone)
         comment13.save()
+        messages.success(request, "Comment uploaded successfully")
+        return redirect('index')
+
+# Lifestyle col3
+def life_col3(request, id):
+    life_coll3 = lifestyle_col_3.objects.get(id=id)
+    comm_life_col3 = comment_lifestyle_col3.objects.all()
+    return render(request, 'lifestyle/life_col3.html', {'life_coll3': life_coll3, 'comm_life_col3': comm_life_col3})
+
+
+def comment_life_col33(request):
+    if request.method == 'POST':
+        comm = request.POST.get('comment')
+        full_name = request.POST.get('full_name')
+        email = request.POST.get('email')
+        phone = request.POST.get('phone')
+
+        comment14 = comment_lifestyle_col3(comm=comm, full_name=full_name, email=email, phone=phone)
+        comment14.save()
         messages.success(request, "Comment uploaded successfully")
         return redirect('index')
 
