@@ -409,6 +409,27 @@ class comment_lifestyle_col3(models.Model):
     def __str__(self):
         return self.full_name
 
+# Lifestyle col 4
+class lifestyle_col_4(models.Model):
+    type = models.CharField(max_length=30, null=False, blank=False, default='Lifestyle')
+    date = models.DateField(default=now, null=False, blank=False)
+    title = models.CharField(max_length=300, null=False, blank=False)
+    writer_name = models.CharField(max_length=30, null=False, blank=False)
+    photo = models.ImageField(upload_to='uploads/business', default='uploads/business/business.jpg')
+    description = models.TextField(default="")
+
+    def __str__(self):
+        return self.title
+
+class comment_lifestyle_col4(models.Model):
+    comm = models.TextField(null=False, blank=False)
+    full_name = models.CharField(max_length=50, null=False, blank=False)
+    email = models.EmailField()
+    phone = models.CharField(max_length=13, null=False, blank=False)
+    image = models.ImageField(upload_to='uploads/comments', default='uploads/comments/default.jpg')
+
+    def __str__(self):
+        return self.full_name
 
 # new_message model
 class new_messages(models.Model):

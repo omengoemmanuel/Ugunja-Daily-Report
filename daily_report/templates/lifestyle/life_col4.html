@@ -72,14 +72,14 @@
         <div class="col-lg-8">
             <article>
                 <header class="mb-4">
-                    <h1 class="fw-bolder mb-1">{{ buss_col1.title }}</h1>
-                    <div class="text-muted fst-italic mb-2">Posted on {{ buss_col1.date }}</div>
+                    <h1 class="fw-bolder mb-1">{{ life_coll4.title }}</h1>
+                    <div class="text-muted fst-italic mb-2">Posted on {{ life_coll4.date }}</div>
                 </header>
                 <figure class="mb-4">
-                    <img class="img-fluid rounded" src="/media/{{ buss_col1.photo }}" alt="Blog post image">
+                    <img class="img-fluid rounded" src="/media/{{ life_coll4.photo }}" alt="Blog post image">
                 </figure>
                 <section class="mb-5">
-                    <p class="fs-5 mb-4">{{ buss_col1.description }}.</p>
+                    <p class="fs-5 mb-4">{{ life_coll4.description }}.</p>
                 </section>
             </article>
             <section class="mb-5">
@@ -87,7 +87,7 @@
                     <div>
                         <div class="card-body">
                             <h4>Leave a Comment</h4>
-                            <form class="mb-4" method="post" action="/comm_bus_col1">
+                            <form class="mb-4" method="post" action="/comment_life_col44">
                                 {% csrf_token %}
                                 <textarea class="form-control" rows="3"
                                           placeholder="Join the discussion and leave a comment!" required
@@ -112,7 +112,7 @@
                                     </div>
                                 </div>
                             </form>
-                            {% for com in buss_col1_comm %}
+                            {% for com in comment_lifestyle_col4 %}
                                 <div class="d-flex mb-4">
                                     <div class="flex-shrink-0"><img class="rounded-circle"
                                                                     src="/media/{{ com.image }}" alt="..." height="50"
@@ -122,7 +122,7 @@
                                         {{ com.comm }}
                                     </div>
                                 </div>
-                                  {% empty %}
+                            {% empty %}
                                 <p>No comment</p>
                             {% endfor %}
                         </div>

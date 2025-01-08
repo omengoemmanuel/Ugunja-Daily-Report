@@ -4,7 +4,7 @@ from .models import sliders, main_trending_headline, comment, sub_trending_col_1
     culture_col12, comment_cul_col1, culture_col2, culture_col3, comment_cul_col3, business_col1, comment_bus_col1, \
     business_main, business_main_support, business_sub_trending, business_post_1, comment_bus_col21, new_messages, \
     lifestyle_main, lifestyle_main_support, lifestyle_col1, comment_lifestyle_col1, lifestyle_col_2, \
-    comment_lifestyle_col2, lifestyle_col_3, comment_lifestyle_col3
+    comment_lifestyle_col2, lifestyle_col_3, comment_lifestyle_col3, lifestyle_col_4, comment_lifestyle_col4
 
 from django.contrib import messages
 
@@ -29,21 +29,22 @@ def index(request):
     life_col1 = lifestyle_col1.objects.all()
     life_col2 = lifestyle_col_2.objects.all()
     life_col3 = lifestyle_col_3.objects.all()
+    life_col4 = lifestyle_col_4.objects.all()
     return render(request, 'index.html',
                   {'slide': slide, 'trend': trend, 'sub_trend_1': sub_trend_1, 'sub_trend_2': sub_trend_2,
                    'sub_trend_3': sub_trend_3, 'Culture_main': Culture_main, 'culture_col1': culture_col1,
                    'culturecol2': culturecol2, 'cul_col_2': cul_col_2, 'cul_col_3': cul_col_3,
                    'busi_col1': busi_col1, 'Business_main': Business_main, 'bus_sub_trending': bus_sub_trending,
                    'bus_post_1': bus_post_1, 'lifestyle_mainn': lifestyle_mainn, 'life_col1': life_col1,
-                   'life_col2': life_col2, 'life_col3': life_col3})
+                   'life_col2': life_col2, 'life_col3': life_col3, 'life_col4': life_col4})
 
 
 def about(request):
     return render(request, 'about.html')
 
 
-def single_post(request):
-    return render(request, 'single-post.html')
+def live_event(request):
+    return render(request, 'live_event.html')
 
 
 def contact(request):
@@ -312,6 +313,25 @@ def comment_life_col33(request):
         phone = request.POST.get('phone')
 
         comment14 = comment_lifestyle_col3(comm=comm, full_name=full_name, email=email, phone=phone)
+        comment14.save()
+        messages.success(request, "Comment uploaded successfully")
+        return redirect('index')
+
+
+# Lifestyle col4
+def life_col4(request, id):
+    life_coll4 = lifestyle_col_4.objects.get(id=id)
+    comm_life_col4 = comment_lifestyle_col4.objects.all()
+    return render(request, 'lifestyle/life_col4.html', {'life_coll4': life_coll4, 'comm_life_col4': comm_life_col4})
+
+def comment_life_col44(request):
+    if request.method == 'POST':
+        comm = request.POST.get('comment')
+        full_name = request.POST.get('full_name')
+        email = request.POST.get('email')
+        phone = request.POST.get('phone')
+
+        comment14 = comment_lifestyle_col4(comm=comm, full_name=full_name, email=email, phone=phone)
         comment14.save()
         messages.success(request, "Comment uploaded successfully")
         return redirect('index')

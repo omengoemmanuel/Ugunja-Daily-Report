@@ -4,7 +4,7 @@ from . import views
 urlpatterns = [
     path('', views.index, name='index'),
     path('about', views.about, name='about'),
-    path('single_post', views.single_post, name='single_post'),
+    path('live_event', views.live_event, name='live_event'),
     path('contact', views.contact, name='contact'),
     path('category', views.category, name='category'),
     path('starter_page', views.starter_page, name='starter_page'),
@@ -43,6 +43,8 @@ urlpatterns = [
     path('comment_life_col2', views.comment_life_col2, name='comment_life_col2'),
     path('life_col3/<id>', views.life_col3, name='life_col3'),
     path('comment_life_col33', views.comment_life_col33, name='comment_life_col3'),
+    path('life_col4/<id>', views.life_col4, name='life_col4'),
+    path('comment_life_col44', views.comment_life_col44, name='comment_life_col44'),
 
 
 
