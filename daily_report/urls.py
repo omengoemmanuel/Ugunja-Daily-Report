@@ -47,7 +47,9 @@ urlpatterns = [
     path('comment_life_col44', views.comment_life_col44, name='comment_life_col44'),
 
 
-
     # New messages
     path('new_message', views.new_message, name='new_message'),
+
+    # Live Events
+
 ]

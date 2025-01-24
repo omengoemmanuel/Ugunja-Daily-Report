@@ -4,7 +4,7 @@ from .models import sliders, main_trending_headline, comment, sub_trending_col_1
     culture_col12, comment_cul_col1, culture_col2, culture_col3, comment_cul_col3, business_col1, comment_bus_col1, \
     business_main, business_main_support, business_sub_trending, business_post_1, comment_bus_col21, new_messages, \
     lifestyle_main, lifestyle_main_support, lifestyle_col1, comment_lifestyle_col1, lifestyle_col_2, \
-    comment_lifestyle_col2, lifestyle_col_3, comment_lifestyle_col3, lifestyle_col_4, comment_lifestyle_col4
+    comment_lifestyle_col2, lifestyle_col_3, comment_lifestyle_col3, lifestyle_col_4, comment_lifestyle_col4, LiveEvent
 
 # Register your models here.
 admin.site.register(sliders)
@@ -52,3 +52,10 @@ admin.site.register(lifestyle_col_3)
 admin.site.register(comment_lifestyle_col3)
 admin.site.register(lifestyle_col_4)
 admin.site.register(comment_lifestyle_col4)
+
+# Live Event
+@admin.register(LiveEvent)
+class LiveEventAdmin(admin.ModelAdmin):
+    list_display = ('title', 'is_active', 'start_time', 'created_at')
+    list_filter = ('is_active', 'created_at')
+    search_fields = ('title','description')

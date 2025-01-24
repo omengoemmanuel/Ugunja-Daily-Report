@@ -4,7 +4,7 @@ from .models import sliders, main_trending_headline, comment, sub_trending_col_1
     culture_col12, comment_cul_col1, culture_col2, culture_col3, comment_cul_col3, business_col1, comment_bus_col1, \
     business_main, business_main_support, business_sub_trending, business_post_1, comment_bus_col21, new_messages, \
     lifestyle_main, lifestyle_main_support, lifestyle_col1, comment_lifestyle_col1, lifestyle_col_2, \
-    comment_lifestyle_col2, lifestyle_col_3, comment_lifestyle_col3, lifestyle_col_4, comment_lifestyle_col4
+    comment_lifestyle_col2, lifestyle_col_3, comment_lifestyle_col3, lifestyle_col_4, comment_lifestyle_col4, LiveEvent
 
 from django.contrib import messages
 
@@ -41,10 +41,6 @@ def index(request):
 
 def about(request):
     return render(request, 'about.html')
-
-
-def live_event(request):
-    return render(request, 'live_event.html')
 
 
 def contact(request):
@@ -298,6 +294,7 @@ def comment_life_col2(request):
         messages.success(request, "Comment uploaded successfully")
         return redirect('index')
 
+
 # Lifestyle col3
 def life_col3(request, id):
     life_coll3 = lifestyle_col_3.objects.get(id=id)
@@ -323,6 +320,7 @@ def life_col4(request, id):
     life_coll4 = lifestyle_col_4.objects.get(id=id)
     comm_life_col4 = comment_lifestyle_col4.objects.all()
     return render(request, 'lifestyle/life_col4.html', {'life_coll4': life_coll4, 'comm_life_col4': comm_life_col4})
+
 
 def comment_life_col44(request):
     if request.method == 'POST':
@@ -350,3 +348,9 @@ def new_message(request):
 
         return redirect('contact')
     return redirect('contact')
+
+
+# Live Events
+def live_event(request):
+    live_events = LiveEvent.objects.filter(is_active=True).order_by('start_time')
+    return render(request, 'live_event.html', {'live_events': live_events})
